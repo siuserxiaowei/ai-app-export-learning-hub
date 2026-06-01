@@ -24,6 +24,5 @@ import csv
 rows=list(csv.DictReader(open('data/opportunity-scorecard.csv')))
 print(len(rows))
 PY
-rg -n '完整逐字稿|完整逐句翻译|优优独播放|Hedron|Lavart|Karm|Visa' .
+python3 scripts/verify_package.py
 ```
-
