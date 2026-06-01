@@ -3,95 +3,277 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI App 出海学习资料包</title>
+  <title>AI App 出海学习站</title>
+  <meta name="description" content="给 OPC、超级个体、独立开发者和小团队使用的 AI App 出海静态学习入口。">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
-    <nav class="nav">
-      <div class="brand">AI App Export Learning Hub</div>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="AI App 出海学习站首页">
+        <span class="brand-mark">AI</span>
+        <span>AI App 出海学习站</span>
+      </a>
       <div class="nav-links">
         <a href="#path">学习路径</a>
-        <a href="#cases">案例</a>
-        <a href="#downloads">资料</a>
+        <a href="#directions">推荐方向</a>
+        <a href="#cases">竞品案例</a>
+        <a href="#templates">作业模板</a>
+        <a href="#downloads">资料下载</a>
       </div>
     </nav>
-    <section class="hero-content">
-      <p class="eyebrow">OPC / 超级个体 / 独立开发者</p>
-      <h1>小团队做 AI App 出海，真正要学的不是“做 App”</h1>
-      <p class="lede">这套资料帮助你判断一个 AI App 出海方向是否值得做，并把竞品案例、学习计划、公开课讲稿和选题评分表整理成可复用的学习包。</p>
-      <div class="hero-actions">
-        <a class="button primary" href="../docs/learning-guide.md">开始学习</a>
-        <a class="button secondary" href="../DELIVERY_INDEX.md">查看交付索引</a>
+
+    <section class="hero-content" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">OPC / 超级个体 / 独立开发者</p>
+        <h1 id="hero-title">小团队做 AI App 出海，先学会判断方向</h1>
+        <p class="lede">这套静态学习站把学习指南、案例拆解、机会评分表、7 天作业和版权边界集中到一个入口，帮助你从“想做 App”推进到“知道先验证什么”。</p>
+        <div class="hero-actions" aria-label="快速入口">
+          <a class="button primary" href="../docs/learning-guide.md">开始学习</a>
+          <a class="button secondary" href="../data/opportunity-scorecard.csv">下载评分表</a>
+        </div>
       </div>
+
+      <aside class="signal-board" aria-label="AI App 出海判断地图">
+        <div class="signal-topline">
+          <span>Direction Filter</span>
+          <strong>7 questions</strong>
+        </div>
+        <div class="signal-lanes">
+          <div>
+            <span>用户</span>
+            <strong>具体人群</strong>
+          </div>
+          <div>
+            <span>任务</span>
+            <strong>旧流程痛点</strong>
+          </div>
+          <div>
+            <span>结果</span>
+            <strong>可付费交付</strong>
+          </div>
+          <div>
+            <span>增长</span>
+            <strong>低成本渠道</strong>
+          </div>
+        </div>
+        <p>不要先问“能不能做出来”，先问“谁会反复为这个结果付费”。</p>
+      </aside>
     </section>
   </header>
 
-  <main>
-    <section class="section" id="path">
+  <main id="main">
+    <section class="section path-section" id="path">
       <div class="section-head">
         <p class="eyebrow">Learning Path</p>
         <h2>推荐学习路径</h2>
+        <p>按顺序读完、做完、评完，最后产出一个可验证的 AI App 出海方向。</p>
       </div>
-      <div class="steps">
-        <article><span>01</span><h3>建立认知</h3><p>读学习指南，理解出海、本地化、正 ROI 和 AI 工作流。</p></article>
-        <article><span>02</span><h3>拆案例</h3><p>用案例学习册拆 10 个品牌，学习可迁移规律。</p></article>
-        <article><span>03</span><h3>选方向</h3><p>用机会评分表筛选适合 OPC 的产品方向。</p></article>
-        <article><span>04</span><h3>做验证</h3><p>按 7 天学习计划完成用户、MVP 和渠道验证。</p></article>
+
+      <div class="path-layout">
+        <div class="path-steps" aria-label="学习路径步骤">
+          <button class="path-step is-active" type="button" data-step="0" aria-pressed="true">
+            <span>01</span>
+            <strong>建立认知</strong>
+          </button>
+          <button class="path-step" type="button" data-step="1" aria-pressed="false">
+            <span>02</span>
+            <strong>拆案例</strong>
+          </button>
+          <button class="path-step" type="button" data-step="2" aria-pressed="false">
+            <span>03</span>
+            <strong>选方向</strong>
+          </button>
+          <button class="path-step" type="button" data-step="3" aria-pressed="false">
+            <span>04</span>
+            <strong>做验证</strong>
+          </button>
+        </div>
+
+        <article class="path-detail" aria-live="polite">
+          <div class="detail-number" id="pathNumber">01</div>
+          <div>
+            <p class="eyebrow" id="pathMeta">30-60 分钟</p>
+            <h3 id="pathTitle">建立正确认知</h3>
+            <p id="pathBody">先读学习指南，理解出海不是翻译、AI 功能不等于产品、下载量不是最终指标。</p>
+            <a class="text-link" id="pathLink" href="../docs/learning-guide.md">打开对应资料</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section highlight">
+    <section class="section conclusions" id="conclusions">
       <div class="section-head">
-        <p class="eyebrow">Core Ideas</p>
+        <p class="eyebrow">Core Conclusions</p>
         <h2>三条核心结论</h2>
       </div>
-      <div class="principles">
-        <p>出海不是翻译，而是重新理解海外用户的工作流、信任和合规。</p>
-        <p>用户不为 AI 功能付费，用户为更快、更省钱、更好的结果付费。</p>
-        <p>独立开发者不要做更小的通用工具，要做更懂具体用户的专业工作流。</p>
+      <div class="conclusion-grid">
+        <article>
+          <span class="kicker">01</span>
+          <h3>出海不是翻译</h3>
+          <p>它是重新理解海外用户的工作流、信任、支付、隐私和合规边界。</p>
+        </article>
+        <article>
+          <span class="kicker">02</span>
+          <h3>用户不为 AI 付费</h3>
+          <p>用户为更快、更省钱、更可靠的结果付费。AI 只是压缩旧流程的手段。</p>
+        </article>
+        <article>
+          <span class="kicker">03</span>
+          <h3>不要做更小的通用工具</h3>
+          <p>小团队更适合做某类人、某个任务、某个交付结果的专业工作流。</p>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="cases">
+    <section class="section" id="directions">
+      <div class="section-head">
+        <p class="eyebrow">Best Starting Points</p>
+        <h2>三大推荐方向</h2>
+        <p>优先选择有明确 ROI、可展示结果、低成本分发可能性的方向。</p>
+      </div>
+      <div class="direction-grid">
+        <article class="direction-card">
+          <div class="score">88</div>
+          <p class="eyebrow">跨境卖家素材自动化</p>
+          <h3>Etsy / TikTok Shop Listing Video Kit</h3>
+          <p>把商品照片变成英文 UGC 广告脚本、listing 标题、短视频结构和导出素材。</p>
+          <dl>
+            <div><dt>首个渠道</dt><dd>TikTok/Reels 对比演示、卖家社区、SEO 模板</dd></div>
+            <div><dt>不要做</dt><dd>泛视频编辑器</dd></div>
+          </dl>
+        </article>
+        <article class="direction-card">
+          <div class="score">84</div>
+          <p class="eyebrow">英文面试练习与反馈</p>
+          <h3>InterviewLoop</h3>
+          <p>服务非英语母语求职者，完成角色化模拟面试、答案评分、表达改写和复习计划。</p>
+          <dl>
+            <div><dt>首个渠道</dt><dd>面试题 SEO、YouTube Shorts、Reddit career 社区</dd></div>
+            <div><dt>不要做</dt><dd>泛英语陪练</dd></div>
+          </dl>
+        </article>
+        <article class="direction-card">
+          <div class="score">82</div>
+          <p class="eyebrow">自由职业者提案生成器</p>
+          <h3>ClientBriefAI</h3>
+          <p>把客户零散需求整理成 proposal、scope、时间线、报价档位和跟进邮件。</p>
+          <dl>
+            <div><dt>首个渠道</dt><dd>LinkedIn、Product Hunt、模板 SEO、冷邮件</dd></div>
+            <div><dt>不要做</dt><dd>又一个通用 proposal 编辑器</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cases-section" id="cases">
       <div class="section-head row">
         <div>
           <p class="eyebrow">Case Workbook</p>
-          <h2>竞品案例学习</h2>
+          <h2>竞品案例入口</h2>
+          <p>先筛选类别，再打开案例学习册做迁移练习。</p>
         </div>
-        <label class="filter-label">筛选
-          <select id="caseFilter">
-            <option value="all">全部</option>
-            <option value="commerce">电商/素材</option>
-            <option value="content">内容/视频</option>
-            <option value="workflow">文档/工作流</option>
-            <option value="wellness">健康/心理</option>
-          </select>
-        </label>
+        <a class="button compact" href="../docs/case-study-workbook.md">打开案例学习册</a>
       </div>
+
+      <div class="filter-bar" aria-label="案例筛选">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="filter-button" type="button" data-filter="commerce" aria-pressed="false">电商/素材</button>
+        <button class="filter-button" type="button" data-filter="content" aria-pressed="false">内容/视频</button>
+        <button class="filter-button" type="button" data-filter="workflow" aria-pressed="false">文档/工作流</button>
+        <button class="filter-button" type="button" data-filter="wellness" aria-pressed="false">健康/心理</button>
+      </div>
+
+      <p class="case-count" id="caseCount" aria-live="polite">显示 10 个案例</p>
       <div class="case-grid" id="caseGrid"></div>
+    </section>
+
+    <section class="section templates" id="templates">
+      <div class="section-head">
+        <p class="eyebrow">Assignments</p>
+        <h2>作业模板</h2>
+        <p>复制模板后，按 7 天学习计划逐步填空。这里保留轻量模板，完整节奏见本地资料。</p>
+      </div>
+
+      <div class="template-grid">
+        <article class="template-card">
+          <p class="eyebrow">Day 2</p>
+          <h3>具体用户定义</h3>
+          <pre id="template-user">我的目标用户是：
+他们每周会遇到的具体任务是：
+他们现在怎么解决：</pre>
+          <button class="button ghost copy-button" type="button" data-copy-target="template-user">复制模板</button>
+        </article>
+        <article class="template-card">
+          <p class="eyebrow">Day 4</p>
+          <h3>产品一句话</h3>
+          <pre id="template-positioning">我帮助 [具体用户] 在 [具体场景] 中，
+用 AI 更快完成 [具体结果]。</pre>
+          <button class="button ghost copy-button" type="button" data-copy-target="template-positioning">复制模板</button>
+        </article>
+        <article class="template-card">
+          <p class="eyebrow">Day 5</p>
+          <h3>MVP 边界</h3>
+          <pre id="template-mvp">用户输入：
+AI 处理：
+最终输出：
+第一个付费点：
+不要做的功能：</pre>
+          <button class="button ghost copy-button" type="button" data-copy-target="template-mvp">复制模板</button>
+        </article>
+      </div>
     </section>
 
     <section class="section" id="downloads">
       <div class="section-head">
-        <p class="eyebrow">Resources</p>
-        <h2>资料下载与使用</h2>
+        <p class="eyebrow">Local Resources</p>
+        <h2>资料下载</h2>
+        <p>所有本地资料使用相对路径指向仓库内的 <code>docs/</code> 与 <code>data/</code> 文件。</p>
       </div>
-      <div class="resources">
-        <a href="../docs/learning-guide.md"><strong>学习指南</strong><span>系统自学入口</span></a>
-        <a href="../docs/case-study-workbook.md"><strong>案例学习册</strong><span>10 个竞品案例</span></a>
-        <a href="../docs/public-content-pack.md"><strong>公开内容包</strong><span>长文、讲稿、卡片</span></a>
-        <a href="../docs/7-day-learning-plan.md"><strong>7 天学习计划</strong><span>社群打卡和自学</span></a>
-        <a href="../docs/facilitator-guide.md"><strong>带学指南</strong><span>讲师/社群使用</span></a>
-        <a href="../data/opportunity-scorecard.csv"><strong>机会评分表</strong><span>产品方向筛选</span></a>
+      <div class="resource-grid">
+        <a href="../docs/learning-guide.md"><strong>学习指南</strong><span>建立 AI App 出海判断框架</span></a>
+        <a href="../docs/case-study-workbook.md"><strong>案例学习册</strong><span>10 个竞品案例与迁移练习</span></a>
+        <a href="../data/opportunity-scorecard.csv"><strong>机会评分表 CSV</strong><span>对候选产品方向做评分</span></a>
+        <a href="../docs/7-day-learning-plan.md"><strong>7 天学习计划</strong><span>个人自学或社群打卡节奏</span></a>
+        <a href="../docs/public-content-pack.md"><strong>公开内容包</strong><span>长文、公开课讲稿、卡片文案</span></a>
+        <a href="../docs/facilitator-guide.md"><strong>带学指南</strong><span>讲师或社群主理人使用</span></a>
+      </div>
+    </section>
+
+    <section class="section boundary" id="sources">
+      <div class="section-head">
+        <p class="eyebrow">Sources & Boundaries</p>
+        <h2>参考来源 / 版权边界</h2>
+      </div>
+      <div class="boundary-layout">
+        <article>
+          <h3>外链集中展示</h3>
+          <p>站内其他区域只链接本地资料；外部来源集中放在这里，便于发布前复核。</p>
+          <ul class="source-list">
+            <li><a href="https://v.douyin.com/1tHsuHuW8fg/" target="_blank" rel="noreferrer">抖音原始短链：雷子思考笔记 / 小团队做 AI 应用出海的真相</a></li>
+          </ul>
+          <a class="text-link" href="../docs/source-brief.md">查看本地来源摘要与研究拆解</a>
+        </article>
+        <article>
+          <h3>版权与使用边界</h3>
+          <ul class="boundary-list">
+            <li>不包含视频完整逐字稿或完整逐句翻译。</li>
+            <li>只保留合规短摘录、摘要、教学化转述和案例研究。</li>
+            <li>不提供医疗、法律、金融等专业建议。</li>
+            <li>竞品案例用于学习拆解，不建议直接复制产品或承诺收益。</li>
+          </ul>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>版权边界：本资料包不包含视频完整逐字稿或完整逐句翻译，只提供教学化转述、摘要、案例和公开来源研究。</p>
+  <footer class="footer">
+    <p>AI App Export Learning Hub · 静态资料入口 · 面向学习、复盘和方向验证。</p>
+    <a href="#top">回到顶部</a>
   </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
-
