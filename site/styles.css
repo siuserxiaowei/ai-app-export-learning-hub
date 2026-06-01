@@ -798,25 +798,28 @@ a {
   }
 
   h1 {
-    font-size: 2.15rem;
+    max-width: 100%;
+    font-size: 1.12rem;
+    line-height: 1.22;
+    line-break: anywhere;
+    word-break: break-all;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.35rem;
+    line-break: anywhere;
   }
 
   h3 {
     font-size: 1.22rem;
   }
 
-  .nav,
-  .hero-content {
-    width: calc(100% - 28px);
-    max-width: 1120px;
-  }
-
   .nav {
-    padding: 16px 0;
+    width: min(360px, 100%);
+    max-width: 360px;
+    margin-left: 14px;
+    margin-right: auto;
+    padding: 16px 14px;
   }
 
   .brand {
@@ -826,16 +829,34 @@ a {
   .nav-links {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .nav-links a {
+    width: 100%;
+    min-width: 0;
     justify-content: center;
+    padding: 0 8px;
     border: 1px solid rgba(255, 255, 255, 0.16);
   }
 
   .lede {
-    font-size: 1.05rem;
+    font-size: 0.94rem;
+    line-break: anywhere;
+    word-break: break-all;
+  }
+
+  .hero-content {
+    width: min(360px, 100%);
+    max-width: 360px;
+    margin-left: 14px;
+    margin-right: auto;
+    padding: 0 14px;
+  }
+
+  .hero-copy,
+  .signal-board {
+    max-width: 100%;
   }
 
   .hero-actions,
