@@ -564,5 +564,5 @@ AI 处理：
 - Google Play AI-Generated Content policy: https://support.google.com/googleplay/android-developer/answer/14094294
 - Superwall Cal AI Case Study: https://superwall.com/case-studies/cal-ai
 - TechCrunch Cal AI profile: https://techcrunch.com/2025/03/16/photo-calorie-app-cal-ai-downloaded-over-a-million-times-was-built-by-two-teenagers/
-- Lovart public launch: https://www.lovart.ai/actions/news/lovart-design-agent-public-launch-chatcanvas
+- Lovart public launch: https://www.lovart.ai/en/news/lovart-design-agent-public-launch-chatcanvas
 - HeyGen About: https://www.heygen.com/about/

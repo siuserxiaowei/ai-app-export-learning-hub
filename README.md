@@ -44,5 +44,5 @@
 这是纯静态站，不需要启动开发服务器。直接在浏览器打开：
 
 ```bash
-open /Users/siuserxiaowei/Workspace/ai-app-export-learning-hub/.worktrees/content-foundation/site/index.html
+open site/index.html
 ```
