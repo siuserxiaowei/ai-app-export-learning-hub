@@ -95,9 +95,15 @@ def check_case_workbook() -> None:
     for case in REQUIRED_CASES:
         if case not in text:
             fail(f"case workbook missing {case}")
-    for phrase in ["小团队可以学什么", "小团队不要学什么", "迁移练习"]:
-        if text.count(phrase) < 8:
-            fail(f"case workbook lacks repeated section: {phrase}")
+    repeated_sections = {
+        "小团队可学": ["小团队可学", "小团队可以学什么"],
+        "小团队不要学": ["小团队不要学", "小团队不要学什么"],
+        "迁移练习": ["迁移练习"],
+    }
+    for label, aliases in repeated_sections.items():
+        count = sum(text.count(alias) for alias in aliases)
+        if count < 8:
+            fail(f"case workbook lacks repeated section: {label}")
 
 
 def check_public_pack() -> None:
@@ -130,4 +136,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
