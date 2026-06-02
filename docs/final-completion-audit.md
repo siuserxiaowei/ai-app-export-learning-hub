@@ -18,6 +18,7 @@
 | GitHub Pages 首页 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/ |
 | 静态学习站 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/site/index.html |
 | 品牌拆解手册 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/brand-teardown-handbook.md |
+| OPC 方向剧本 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/opc-app-playbook.md |
 | 目标覆盖矩阵 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/goal-coverage-matrix.md |
 | 合规双语学习稿 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/bilingual-study-note.md |
 | 授权逐字稿流程 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/authorized-transcript-workflow.md |
@@ -51,6 +52,7 @@
 | `docs/learning-guide.md` | 已完成 | 系统课程讲义。 |
 | `docs/case-study-workbook.md` | 已完成 | 10 个竞品案例学习册。 |
 | `docs/brand-teardown-handbook.md` | 已完成 | AI App 出海品牌拆解手册。 |
+| `docs/opc-app-playbook.md` | 已完成 | 10 个 OPC AI App 出海方向的 MVP、渠道实验、7 天验证和淘汰标准。 |
 | `docs/7-day-learning-plan.md` | 已完成 | 7 天学习和验证计划。 |
 | `docs/public-content-pack.md` | 已完成 | 长文、公开课讲稿和卡片文案。 |
 | `docs/facilitator-guide.md` | 已完成 | 讲师和社群带学指南。 |

@@ -10,6 +10,7 @@
 - 合规双语学习稿
 - 原目标覆盖矩阵
 - 品牌拆解手册
+- OPC App 方向剧本
 - 最终完成度审计
 - 授权逐字稿处理流程
 - 研究证据登记表
@@ -20,13 +21,14 @@
 ## 完成项
 
 - 已将 `main` 合并到 `agent/qa-polish`，合并方式为 fast-forward。
-- Required files 共 19 项全部存在：入口说明、交付索引、QA 报告、11 份核心 docs、CSV、静态站三件套和验证脚本。
+- Required files 共 20 项全部存在：入口说明、交付索引、QA 报告、12 份核心 docs、CSV、静态站三件套和验证脚本。
 - 新增 `docs/bilingual-study-note.md`，用中文学习稿、英文学习译稿、术语表和课堂练习替代不可交付的完整逐字稿/逐句译文。
 - 新增 `docs/goal-coverage-matrix.md`，逐项说明原始目标、当前交付证据、完成状态和版权限制。
 - 新增 `docs/brand-teardown-handbook.md`，独立拆解 AI App 出海品牌的命名、首页、信任层、定价、传播钩子和 10 个品牌样本。
 - 新增 `docs/final-completion-audit.md`，逐项审计原始目标、当前证据、线上链接、验证命令和不能声明完成的版权受限部分。
 - 新增 `docs/authorized-transcript-workflow.md`，说明授权文本到位后如何在 `private/` 目录处理完整逐字稿、译文和学习注释。
 - 新增 `docs/research-evidence-register.md`，登记市场报告、平台政策、竞品/品牌页面、媒体案例和上线证据。
+- 新增 `docs/opc-app-playbook.md`，将 10 个候选方向拆成用户、旧流程、MVP、渠道实验、7 天验证和淘汰标准。
 - `data/opportunity-scorecard.csv` 可由 Python `csv.DictReader` 正常解析，含 10 行机会记录和必需字段。
 - `site/index.html` 的本地 `href`/`src` 目标均存在，站内锚点均能解析到页面内 `id`。
 - Markdown 本地链接可解析到目标文件。
@@ -58,6 +60,7 @@ required = [
     'docs/final-completion-audit.md',
     'docs/authorized-transcript-workflow.md',
     'docs/research-evidence-register.md',
+    'docs/opc-app-playbook.md',
     'docs/brand-teardown-handbook.md',
     'docs/case-study-workbook.md', 'docs/7-day-learning-plan.md', 'docs/facilitator-guide.md',
     'data/opportunity-scorecard.csv', 'site/index.html', 'site/styles.css', 'site/app.js',
@@ -147,10 +150,10 @@ git worktree list
 ## 验证结果
 
 - `python3 scripts/verify_package.py` 输出：`OK: learning hub package verification passed`。
-- Required files 检查输出：19 项，missing 为 `none`。
+- Required files 检查输出：20 项，missing 为 `none`。
 - CSV 检查输出：10 行，字段包括 `opportunity`、`target_user`、`job_to_be_done`、`opportunity_score` 等。
-- 静态站本地链接检查：19 个本地 `href`/`src` 均存在；8 个站内锚点均存在。
-- Markdown 本地链接检查：29 个本地链接均存在。
+- 静态站本地链接检查：20 个本地 `href`/`src` 均存在；8 个站内锚点均存在。
+- Markdown 本地链接检查：31 个本地链接均存在。
 - 核心外部来源轻量检查：RevenueCat 2026、Sensor Tower、GlobeNewswire、Photoroom、Gamma、HeyGen 均返回 200；ElevenLabs 返回 308 跳转；Lovart 页面经浏览器/web 打开可读，但普通脚本请求返回 404，记录为站点请求方式差异。
 - 内容风险搜索只命中版权边界说明、正常时间轴摘要、字幕/翻译作为产品功能描述，以及“内部”作为交接/团队场景描述；验证脚本内维护的已知误听词列表未命中交付内容。
 - `git worktree list` 仅保留主仓库工作区，临时 agent worktree 已清理。

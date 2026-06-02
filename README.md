@@ -16,14 +16,15 @@
 1. 先读 [学习指南](docs/learning-guide.md)，建立出海、本地化、OPC、AI 工作流和验证框架。
 2. 再读 [案例学习册](docs/case-study-workbook.md)，用 10 个竞品案例理解什么该学、什么不该照搬。
 3. 用 [品牌拆解手册](docs/brand-teardown-handbook.md) 学会判断海外 AI App 的命名、首页、信任层、定价和传播钩子。
-4. 打开 [机会评分表](data/opportunity-scorecard.csv)，给自己的候选方向打分，筛掉泛 AI 工具和高风险赛道。
-5. 按 [7 天学习计划](docs/7-day-learning-plan.md) 完成自学、社群打卡或小组共创。
-6. 对外发布时使用 [公开内容包](docs/public-content-pack.md)，带课或带社群时配合 [讲师与社群带学指南](docs/facilitator-guide.md)。
-7. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
-8. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
-9. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
-10. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md)。
-11. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
+4. 读 [OPC App 方向剧本](docs/opc-app-playbook.md)，把研究结论转成 10 个可验证方向。
+5. 打开 [机会评分表](data/opportunity-scorecard.csv)，给自己的候选方向打分，筛掉泛 AI 工具和高风险赛道。
+6. 按 [7 天学习计划](docs/7-day-learning-plan.md) 完成自学、社群打卡或小组共创。
+7. 对外发布时使用 [公开内容包](docs/public-content-pack.md)，带课或带社群时配合 [讲师与社群带学指南](docs/facilitator-guide.md)。
+8. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
+9. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
+10. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
+11. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md)。
+12. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
 
 ## 资料目录
 
@@ -39,6 +40,7 @@
 | [docs/learning-guide.md](docs/learning-guide.md) | 主学习文档，讲清小团队做 AI App 出海的判断框架。 |
 | [docs/case-study-workbook.md](docs/case-study-workbook.md) | 10 个竞品案例学习册，适合课堂练习和产品迁移。 |
 | [docs/brand-teardown-handbook.md](docs/brand-teardown-handbook.md) | 品牌拆解手册，训练学习者看懂命名、首页、信任层、定价和传播钩子。 |
+| [docs/opc-app-playbook.md](docs/opc-app-playbook.md) | OPC App 方向剧本，把 10 个候选方向拆成用户、旧流程、MVP、渠道实验和淘汰标准。 |
 | [data/opportunity-scorecard.csv](data/opportunity-scorecard.csv) | 机会评分表，用于比较和筛选产品方向。 |
 | [docs/7-day-learning-plan.md](docs/7-day-learning-plan.md) | 7 天自学、打卡或训练营安排。 |
 | [docs/public-content-pack.md](docs/public-content-pack.md) | 可发布长文、30 分钟公开课讲稿和 10 张卡片文案。 |

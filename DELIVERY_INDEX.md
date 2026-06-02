@@ -17,6 +17,7 @@
 | `docs/learning-guide.md` | 主学习文档，讲清 AI App 出海的关键认知、选题框架、方向建议和作业模板。 | 可作为课程讲义、社群精华帖或付费资料主文档。 |
 | `docs/case-study-workbook.md` | 10 个竞品案例学习册，拆解 Cal AI、Photoroom、Gamma、HeyGen、Lovart 等案例。 | 适合工作坊练习、社群共读和产品方向讨论。 |
 | `docs/brand-teardown-handbook.md` | AI App 出海品牌拆解手册，覆盖命名、首页、信任层、定价、传播钩子和 10 个品牌样本。 | 适合品牌定位课、官网改版前检查、独立开发者产品命名和落地页练习。 |
+| `docs/opc-app-playbook.md` | OPC AI App 出海方向剧本，将 10 个候选方向拆成用户、旧流程、MVP、渠道实验、7 天验证和淘汰标准。 | 适合独立开发者选题、训练营作业和产品方向评审。 |
 | `data/opportunity-scorecard.csv` | 机会评分表，用维度化方式比较产品方向。 | 适合导入表格工具后给学习者填写。 |
 | `docs/7-day-learning-plan.md` | 7 天学习和验证节奏，覆盖认知、用户、竞品、MVP、渠道和继续/停止判断。 | 适合训练营、社群打卡和个人执行计划。 |
 | `docs/public-content-pack.md` | 公开内容包，包含长文、30 分钟公开课讲稿和 10 张学习卡片文案。 | 可拆成公众号文章、直播稿、小红书/朋友圈卡片。 |
@@ -36,15 +37,16 @@
 | 4 | `docs/learning-guide.md` | 系统建立 AI App 出海、OPC 和小团队验证框架。 |
 | 5 | `docs/case-study-workbook.md` | 用 10 个案例练习从竞品迁移到自己的方向。 |
 | 6 | `docs/brand-teardown-handbook.md` | 拆命名、首页、信任层、定价和传播钩子，把案例变成自己的品牌假设。 |
-| 7 | `data/opportunity-scorecard.csv` | 给候选方向打分，选择 1 个最值得验证的切口。 |
-| 8 | `docs/7-day-learning-plan.md` | 按 7 天节奏完成用户、MVP 和渠道验证。 |
-| 9 | `docs/public-content-pack.md` | 将学习成果改造成长文、公开课或卡片内容。 |
-| 10 | `docs/facilitator-guide.md` | 如果要带社群或工作坊，再使用带学流程和提醒。 |
-| 11 | `docs/goal-coverage-matrix.md` | 验收或交接时核对原目标、交付证据和版权边界。 |
-| 12 | `docs/final-completion-audit.md` | 最终审计线上证据、验证命令和不能声明完成的部分。 |
-| 13 | `docs/research-evidence-register.md` | 复查研究来源、引用等级和维护风险。 |
-| 14 | `docs/authorized-transcript-workflow.md` | 如果后续有授权文本，按流程生成私有逐字稿、译文和公开学习材料。 |
-| 15 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
+| 7 | `docs/opc-app-playbook.md` | 选 2 个方向，用剧本里的 7 天验证动作做对比。 |
+| 8 | `data/opportunity-scorecard.csv` | 给候选方向打分，选择 1 个最值得验证的切口。 |
+| 9 | `docs/7-day-learning-plan.md` | 按 7 天节奏完成用户、MVP 和渠道验证。 |
+| 10 | `docs/public-content-pack.md` | 将学习成果改造成长文、公开课或卡片内容。 |
+| 11 | `docs/facilitator-guide.md` | 如果要带社群或工作坊，再使用带学流程和提醒。 |
+| 12 | `docs/goal-coverage-matrix.md` | 验收或交接时核对原目标、交付证据和版权边界。 |
+| 13 | `docs/final-completion-audit.md` | 最终审计线上证据、验证命令和不能声明完成的部分。 |
+| 14 | `docs/research-evidence-register.md` | 复查研究来源、引用等级和维护风险。 |
+| 15 | `docs/authorized-transcript-workflow.md` | 如果后续有授权文本，按流程生成私有逐字稿、译文和公开学习材料。 |
+| 16 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
 
 ## 发布建议
 

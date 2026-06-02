@@ -19,6 +19,7 @@ REQUIRED_PATHS = [
     "docs/final-completion-audit.md",
     "docs/authorized-transcript-workflow.md",
     "docs/research-evidence-register.md",
+    "docs/opc-app-playbook.md",
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
     "docs/case-study-workbook.md",
@@ -210,6 +211,22 @@ def check_research_evidence_register() -> None:
             fail(f"research evidence register missing phrase: {phrase}")
 
 
+def check_opc_app_playbook() -> None:
+    text = read("docs/opc-app-playbook.md")
+    required = [
+        "筛选原则",
+        "方向 1：Etsy / TikTok Shop Listing Video Kit",
+        "方向 2：InterviewLoop",
+        "方向 3：ClientBriefAI",
+        "推荐优先级",
+        "选方向模板",
+        "最小落地页文案模板",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"opc app playbook missing phrase: {phrase}")
+
+
 def check_site_links() -> None:
     html = read("site/index.html")
     local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
@@ -233,6 +250,7 @@ def main() -> None:
     check_completion_audit()
     check_authorized_transcript_workflow()
     check_research_evidence_register()
+    check_opc_app_playbook()
     check_site_links()
     print("OK: learning hub package verification passed")
 
