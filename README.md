@@ -21,6 +21,7 @@
 6. 对外发布时使用 [公开内容包](docs/public-content-pack.md)，带课或带社群时配合 [讲师与社群带学指南](docs/facilitator-guide.md)。
 7. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
 8. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
+9. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
 
 ## 资料目录
 
@@ -30,6 +31,7 @@
 | [docs/source-brief.md](docs/source-brief.md) | 源摘要和研究底稿，保留视频元信息、合规短摘录、分段转述、英文摘要和参考来源。 |
 | [docs/bilingual-study-note.md](docs/bilingual-study-note.md) | 合规双语学习稿，用中文转述、英文学习译稿和术语表替代完整逐字稿/逐句译文。 |
 | [docs/goal-coverage-matrix.md](docs/goal-coverage-matrix.md) | 原目标覆盖矩阵，说明哪些目标已完成、哪些采用合规替代、哪些不能声称完整完成。 |
+| [docs/final-completion-audit.md](docs/final-completion-audit.md) | 最终完成度审计，列出线上证据、逐项目标判断、验证命令和不能声明完成的部分。 |
 | [docs/learning-guide.md](docs/learning-guide.md) | 主学习文档，讲清小团队做 AI App 出海的判断框架。 |
 | [docs/case-study-workbook.md](docs/case-study-workbook.md) | 10 个竞品案例学习册，适合课堂练习和产品迁移。 |
 | [docs/brand-teardown-handbook.md](docs/brand-teardown-handbook.md) | 品牌拆解手册，训练学习者看懂命名、首页、信任层、定价和传播钩子。 |

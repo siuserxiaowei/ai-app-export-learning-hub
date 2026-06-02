@@ -16,6 +16,7 @@ REQUIRED_PATHS = [
     "docs/source-brief.md",
     "docs/bilingual-study-note.md",
     "docs/goal-coverage-matrix.md",
+    "docs/final-completion-audit.md",
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
     "docs/case-study-workbook.md",
@@ -163,6 +164,20 @@ def check_brand_handbook() -> None:
             fail(f"brand handbook missing brand: {brand}")
 
 
+def check_completion_audit() -> None:
+    text = read("docs/final-completion-audit.md")
+    required = [
+        "审计结论",
+        "线上交付证据",
+        "原始目标逐项审计",
+        "当前验证证据",
+        "不能声明完成的部分",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"completion audit missing phrase: {phrase}")
+
+
 def check_site_links() -> None:
     html = read("site/index.html")
     local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
@@ -183,6 +198,7 @@ def main() -> None:
     check_bilingual_study_note()
     check_goal_matrix()
     check_brand_handbook()
+    check_completion_audit()
     check_site_links()
     print("OK: learning hub package verification passed")
 
