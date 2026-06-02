@@ -18,6 +18,7 @@ REQUIRED_PATHS = [
     "docs/goal-coverage-matrix.md",
     "docs/final-completion-audit.md",
     "docs/authorized-transcript-workflow.md",
+    "docs/research-evidence-register.md",
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
     "docs/case-study-workbook.md",
@@ -194,6 +195,21 @@ def check_authorized_transcript_workflow() -> None:
             fail(f"authorized transcript workflow missing phrase: {phrase}")
 
 
+def check_research_evidence_register() -> None:
+    text = read("docs/research-evidence-register.md")
+    required = [
+        "证据等级",
+        "市场与订阅趋势",
+        "平台政策与合规",
+        "竞品和品牌来源",
+        "维护流程",
+        "引用原则",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"research evidence register missing phrase: {phrase}")
+
+
 def check_site_links() -> None:
     html = read("site/index.html")
     local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
@@ -216,6 +232,7 @@ def main() -> None:
     check_brand_handbook()
     check_completion_audit()
     check_authorized_transcript_workflow()
+    check_research_evidence_register()
     check_site_links()
     print("OK: learning hub package verification passed")
 

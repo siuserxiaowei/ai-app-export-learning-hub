@@ -21,6 +21,7 @@
 | 目标覆盖矩阵 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/goal-coverage-matrix.md |
 | 合规双语学习稿 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/bilingual-study-note.md |
 | 授权逐字稿流程 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/authorized-transcript-workflow.md |
+| 研究证据登记表 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/research-evidence-register.md |
 
 ## 原始目标逐项审计
 
@@ -46,6 +47,7 @@
 | `docs/goal-coverage-matrix.md` | 已完成 | 原目标覆盖矩阵。 |
 | `docs/final-completion-audit.md` | 已完成 | 本审计报告。 |
 | `docs/authorized-transcript-workflow.md` | 已完成 | 授权文本到位后的私有逐字稿、翻译稿和学习注释处理流程。 |
+| `docs/research-evidence-register.md` | 已完成 | 市场报告、政策、竞品/品牌、媒体案例和上线证据登记表。 |
 | `docs/learning-guide.md` | 已完成 | 系统课程讲义。 |
 | `docs/case-study-workbook.md` | 已完成 | 10 个竞品案例学习册。 |
 | `docs/brand-teardown-handbook.md` | 已完成 | AI App 出海品牌拆解手册。 |
