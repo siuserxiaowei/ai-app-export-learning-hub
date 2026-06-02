@@ -7,6 +7,9 @@
 ## 验收范围
 
 - Markdown 资料库
+- 知识库首页、搜索和专题筛选
+- 知识库来源登记表
+- 提示词资产化流程
 - 合规双语学习稿
 - 原目标覆盖矩阵
 - 品牌拆解手册
@@ -20,6 +23,21 @@
 - Google AdSense / Google Ads 接入准备
 - 隐私说明和使用条款页面
 - 交付索引和入口说明
+
+## 2026-06-02 知识库改造追加验收
+
+- 首页已从资料包入口升级为知识库首页，保留学习路径，并新增搜索、标签筛选、8 个一级专题、核查日期、GitHub 贡献入口和深度资料库。
+- `site/app.js` 已内置 8 个一级专题：市场与机会、产品验证、AI App 案例、上架合规、隐私与 AI 风险、ASO 与本地化、订阅变现、冷启动增长。
+- 每个一级专题包含 3 张入门知识卡、1 个模板、1 个案例和 1 组行动清单；总计 24 张知识卡。
+- 每张知识卡包含适合谁、核心结论、操作步骤、常见坑、来源和最后核查日期。
+- 已新增 `docs/knowledge-source-register.md`，记录来源等级、政策核查日期、订阅报告、提示词资产化流程和 HTTPS 上线修复项。
+- 针对“前同事留下的提示词没人会用”的业务问题，首页新增提示词资产区，并在产品验证专题中加入提示词传承模板与操作卡。
+- 已将失效的抖音短链从公开可点击外链改为历史来源说明，避免把短链作为长期公开来源。
+- 已用系统 Chrome headless 验证桌面和移动视口：9 个专题按钮、24 张知识卡、提示词搜索返回 3 张卡、上架合规筛选返回 3 张卡、订阅标签返回 3 张卡，无控制台错误，无横向溢出。
+- 已新增“网页资料馆”，把 12 个外部网页整理成为什么读、我怎么看、怎么用、别误读，并按市场趋势、上架合规、ASO 增长、订阅变现筛选。
+- 已用系统 Chrome headless 追加验证网页资料馆：桌面和移动视口均显示 12 张网页卡，5 个筛选按钮可用，上架合规筛选返回 4 张，订阅变现筛选返回 3 张，无控制台错误，无横向溢出。
+- 核心外链短名单验证通过：GitHub、Sensor Tower、TechCrunch、Apple Review、Google Play AI policy、Google Data Safety、Apple localization、Apple custom product pages、Google store listing experiments、Apple subscriptions、RevenueCat 2026、RevenueCat 2025、Apple EU DSA 均返回 200。
+- `http://gptimage2.store/site/index.html` 和 `http://gptimage2.store/` 返回 200；`https://gptimage2.store/` 仍返回 000，保留为正式推广前的 HTTPS 证书修复项。
 
 ## 完成项
 

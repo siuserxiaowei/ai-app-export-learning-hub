@@ -69,7 +69,7 @@
 
 | 来源 | 等级 | 支撑的判断 | 使用位置 | 维护风险 |
 | --- | --- | --- | --- | --- |
-| Douyin short link: https://v.douyin.com/1tHsuHuW8fg/ | C | 原始视频入口和研究主题来源。 | `docs/source-brief.md`、`site/index.html` | 短链可能失效；不依赖其长期可访问性。 |
+| Douyin short link: 原始短链曾记录为 v.douyin.com/1tHsuHuW8fg，2026-06-02 复查时已不可作为稳定公开来源。 | C | 原始视频入口和研究主题来源。 | `docs/source-brief.md` | 短链可能失效；不依赖其长期可访问性。 |
 
 ## 项目上线证据
 

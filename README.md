@@ -1,6 +1,6 @@
 # AI App 出海学习资料包
 
-这是一套面向 OPC（One-Person Company）、超级个体、独立开发者和小团队的 AI App 出海学习资料包。它把抖音视频观点、公开行业资料、竞品案例和产品验证方法，整理成可以自学、带学、公开分享和静态站浏览的成套内容。
+这是一套面向 OPC（One-Person Company）、超级个体、独立开发者和小团队的 AI App 出海知识库与学习资料包。它把抖音视频观点、公开行业资料、竞品案例、产品验证方法和平台合规要求，整理成可以自学、带学、公开分享和静态站浏览的成套内容。
 
 资料包的核心判断是：AI App 出海不是把中文产品翻译成英文，也不是做一个更小的通用 AI 工具。小团队更现实的机会，是找到具体人群、具体任务和具体商业结果，用 AI 把旧工作流压缩成一个可付费、可复用、可传播的小闭环。
 
@@ -24,7 +24,7 @@
 9. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
 10. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
 11. 如果要开源引用、接 Google AdSense 或用 Google Ads 小预算推广，阅读 [Google Ads 与 AdSense 接入说明](docs/google-ads-and-adsense-setup.md) 和 [Google Ads 小预算推广计划](docs/google-ads-campaign-plan.md)。
-12. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md)。
+12. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md) 和 [知识库来源登记表](docs/knowledge-source-register.md)。
 13. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
 
 ## 资料目录
@@ -37,6 +37,7 @@
 | [docs/goal-coverage-matrix.md](docs/goal-coverage-matrix.md) | 原目标覆盖矩阵，说明哪些目标已完成、哪些采用合规替代、哪些不能声称完整完成。 |
 | [docs/final-completion-audit.md](docs/final-completion-audit.md) | 最终完成度审计，列出线上证据、逐项目标判断、验证命令和不能声明完成的部分。 |
 | [docs/research-evidence-register.md](docs/research-evidence-register.md) | 研究证据登记表，集中维护市场报告、平台政策、竞品/品牌和上线证据。 |
+| [docs/knowledge-source-register.md](docs/knowledge-source-register.md) | 知识库来源登记表，维护 8 个专题、12 个网页整理、平台政策、订阅报告、提示词资产化和 HTTPS 上线修复项。 |
 | [docs/authorized-transcript-workflow.md](docs/authorized-transcript-workflow.md) | 授权逐字稿处理流程，说明授权文本到位后如何生成私有逐字稿、译文和公开学习材料。 |
 | [docs/google-ads-and-adsense-setup.md](docs/google-ads-and-adsense-setup.md) | Google AdSense 展示广告、Google Ads 转化追踪和域名接入说明。 |
 | [docs/google-ads-campaign-plan.md](docs/google-ads-campaign-plan.md) | Google Ads 小预算投放计划、关键词、广告文案和转化目标。 |
@@ -48,7 +49,7 @@
 | [docs/7-day-learning-plan.md](docs/7-day-learning-plan.md) | 7 天自学、打卡或训练营安排。 |
 | [docs/public-content-pack.md](docs/public-content-pack.md) | 可发布长文、30 分钟公开课讲稿和 10 张卡片文案。 |
 | [docs/facilitator-guide.md](docs/facilitator-guide.md) | 讲师和社群运营使用说明。 |
-| [site/index.html](site/index.html) | 静态学习站入口，配合 `site/styles.css` 和 `site/app.js` 使用。 |
+| [site/index.html](site/index.html) | 静态知识库首页，配合 `site/styles.css` 和 `site/app.js` 提供搜索、标签筛选、专题入口、网页资料馆和深度资料库。 |
 | [site/privacy.html](site/privacy.html) | 隐私说明页面，适合 AdSense / Google Ads 审核前准备。 |
 | [site/terms.html](site/terms.html) | 使用条款页面，说明学习用途、广告边界和免责声明。 |
 | [QA_REPORT.md](QA_REPORT.md) | 验收范围、版权边界和基础检查记录。 |

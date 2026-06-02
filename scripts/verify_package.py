@@ -26,6 +26,7 @@ REQUIRED_PATHS = [
     "docs/final-completion-audit.md",
     "docs/authorized-transcript-workflow.md",
     "docs/research-evidence-register.md",
+    "docs/knowledge-source-register.md",
     "docs/google-ads-and-adsense-setup.md",
     "docs/google-ads-campaign-plan.md",
     "docs/opc-app-playbook.md",
@@ -225,6 +226,24 @@ def check_research_evidence_register() -> None:
             fail(f"research evidence register missing phrase: {phrase}")
 
 
+def check_knowledge_source_register() -> None:
+    text = read("docs/knowledge-source-register.md")
+    required = [
+        "最后核查日期：2026-06-02",
+        "来源等级",
+        "当前登记来源",
+        "提示词资产化登记",
+        "上线修复项",
+        "HTTPS 证书",
+        "Apple App Review Guidelines",
+        "Google Play AI-Generated Content policy",
+        "RevenueCat State of Subscription Apps 2026",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"knowledge source register missing phrase: {phrase}")
+
+
 def check_opc_app_playbook() -> None:
     text = read("docs/opc-app-playbook.md")
     required = [
@@ -239,6 +258,70 @@ def check_opc_app_playbook() -> None:
     for phrase in required:
         if phrase not in text:
             fail(f"opc app playbook missing phrase: {phrase}")
+
+
+def check_site_knowledge_base() -> None:
+    html = read("site/index.html")
+    js = read("site/app.js")
+
+    required_html = [
+        'id="knowledge"',
+        'id="knowledgeSearch"',
+        'id="tagFilters"',
+        'id="topicRail"',
+        'id="topicDetail"',
+        'id="knowledgeGrid"',
+        'id="web-library"',
+        'id="webLibraryGrid"',
+        'id="webLibraryCount"',
+        'id="prompt-system"',
+        "App 出海知识库",
+        "网页资料馆",
+        "把外部网页整理成能用的判断",
+        "提示词资产",
+        "深度资料库",
+        "最后核查：2026-06-02",
+    ]
+    for phrase in required_html:
+        if phrase not in html:
+            fail(f"site knowledge base missing html phrase: {phrase}")
+
+    required_topic_ids = [
+        'id: "market"',
+        'id: "validation"',
+        'id: "cases"',
+        'id: "compliance"',
+        'id: "privacy"',
+        'id: "aso"',
+        'id: "monetization"',
+        'id: "growth"',
+    ]
+    for topic_id in required_topic_ids:
+        if topic_id not in js:
+            fail(f"site knowledge base missing topic: {topic_id}")
+
+    required_js = [
+        'const lastVerifiedDate = "2026-06-02"',
+        "renderKnowledge",
+        "renderWebLibrary",
+        "makeWebPageCard",
+        "makeKnowledgeCard",
+        "knowledgeSearch.addEventListener",
+        "提示词传承模板",
+        "把提示词当业务流程，不当神秘咒语",
+        "RevenueCat：Subscription Apps 2026",
+    ]
+    for phrase in required_js:
+        if phrase not in js:
+            fail(f"site knowledge base missing js phrase: {phrase}")
+
+    verified_count = js.count("verified: lastVerifiedDate")
+    if verified_count != 36:
+        fail(f"site knowledge base should have 24 cards and 12 web pages, got {verified_count} verified items")
+
+    web_page_count = js.count("whyRead:")
+    if web_page_count != 12:
+        fail(f"site web library should have 12 curated pages, got {web_page_count}")
 
 
 def check_site_links() -> None:
@@ -280,7 +363,19 @@ def check_site_links() -> None:
                 fail(f"{html_path} local link target missing: {raw}")
 
     html = read("site/index.html")
-    for required in ["学习路径", "核心结论", "竞品", "资料", "Privacy", "Terms", "GitHub", "License"]:
+    for required in [
+        "学习路径",
+        "核心结论",
+        "竞品",
+        "知识库",
+        "网页资料馆",
+        "提示词资产",
+        "深度资料库",
+        "Privacy",
+        "Terms",
+        "GitHub",
+        "License",
+    ]:
         if required not in html:
             fail(f"site missing required visible text: {required}")
 
@@ -333,7 +428,9 @@ def main() -> None:
     check_completion_audit()
     check_authorized_transcript_workflow()
     check_research_evidence_register()
+    check_knowledge_source_register()
     check_opc_app_playbook()
+    check_site_knowledge_base()
     check_site_links()
     check_open_source_and_ads_readiness()
     print("OK: learning hub package verification passed")

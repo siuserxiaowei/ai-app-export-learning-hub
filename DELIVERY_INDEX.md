@@ -18,6 +18,7 @@
 | `docs/goal-coverage-matrix.md` | 原目标覆盖矩阵，逐项说明原始需求、当前交付证据、状态和限制。 | 适合交接、验收、版权边界解释和后续迭代。 |
 | `docs/final-completion-audit.md` | 最终完成度审计，包含线上证据、逐项目标判断、验证命令和不能声明完成的部分。 | 适合最终交接、对外发布前审计和后续维护。 |
 | `docs/research-evidence-register.md` | 研究证据登记表，集中记录市场报告、平台政策、竞品/品牌页面、媒体案例和上线证据。 | 适合讲课引用、发布前复查、后续链接维护和事实审计。 |
+| `docs/knowledge-source-register.md` | 知识库来源登记表，记录首页 8 个专题、12 个网页整理、来源等级、核查日期、提示词资产化流程和 HTTPS 上线修复项。 | 适合知识库长期维护、政策复查、协作者纠错和正式推广前审计。 |
 | `docs/authorized-transcript-workflow.md` | 授权逐字稿处理流程，说明授权文本到位后如何在私有目录处理完整逐字稿、译文和学习注释。 | 适合后续用户提供授权文本时继续处理，不建议公开放完整逐字稿。 |
 | `docs/google-ads-and-adsense-setup.md` | Google AdSense、Google Ads、`ads.txt`、隐私条款和转化追踪接入说明。 | 广告账号申请、站点审核和转化追踪启用时使用。 |
 | `docs/google-ads-campaign-plan.md` | 小预算 Google Ads 投放计划，包含人群、关键词、文案、预算和转化目标。 | 用于第一轮搜索广告测试。 |
@@ -29,7 +30,7 @@
 | `docs/7-day-learning-plan.md` | 7 天学习和验证节奏，覆盖认知、用户、竞品、MVP、渠道和继续/停止判断。 | 适合训练营、社群打卡和个人执行计划。 |
 | `docs/public-content-pack.md` | 公开内容包，包含长文、30 分钟公开课讲稿和 10 张学习卡片文案。 | 可拆成公众号文章、直播稿、小红书/朋友圈卡片。 |
 | `docs/facilitator-guide.md` | 讲师与社群带学指南，提供 30 分钟课、60 分钟工作坊和打卡组织方式。 | 给主持人、讲师或社群运营使用。 |
-| `site/index.html` | 静态学习站入口，面向学习者提供网页化阅读体验。 | 可直接本地打开，也可部署到静态托管。 |
+| `site/index.html` | 静态知识库首页，面向学习者提供学习路径、知识卡搜索、标签筛选、网页资料馆、提示词资产化、案例和深度资料库入口。 | 可直接本地打开，也可部署到静态托管。 |
 | `site/styles.css` | 静态站样式文件。 | 与 `site/index.html` 一起发布，不单独使用。 |
 | `site/app.js` | 静态站交互脚本。 | 与 `site/index.html` 一起发布，不单独使用。 |
 | `site/privacy.html` | 隐私说明页面，覆盖静态站访问、Google AdSense、Google Ads 和 cookies。 | AdSense / Google Ads 审核前准备。 |
@@ -59,8 +60,9 @@
 | 14 | `docs/goal-coverage-matrix.md` | 验收或交接时核对原目标、交付证据和版权边界。 |
 | 15 | `docs/final-completion-audit.md` | 最终审计线上证据、验证命令和不能声明完成的部分。 |
 | 16 | `docs/research-evidence-register.md` | 复查研究来源、引用等级和维护风险。 |
-| 17 | `docs/authorized-transcript-workflow.md` | 如果后续有授权文本，按流程生成私有逐字稿、译文和公开学习材料。 |
-| 18 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
+| 17 | `docs/knowledge-source-register.md` | 复查知识卡来源、政策核查日期、提示词资产化流程和 HTTPS 上线修复项。 |
+| 18 | `docs/authorized-transcript-workflow.md` | 如果后续有授权文本，按流程生成私有逐字稿、译文和公开学习材料。 |
+| 19 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
 
 ## 发布建议
 
@@ -69,7 +71,7 @@
 - 小红书/朋友圈/社群海报：使用 `docs/public-content-pack.md` 的 10 张学习卡片文案。
 - 训练营或打卡：组合 `docs/7-day-learning-plan.md`、`docs/facilitator-guide.md` 和 `data/opportunity-scorecard.csv`。
 - 产品方向讨论会：先让学习者读 `docs/case-study-workbook.md`，再用 `data/opportunity-scorecard.csv` 做评分。
-- 对外公开页面：发布 `site/index.html`、`site/styles.css` 和 `site/app.js` 三个静态站文件。
+- 对外公开页面：发布 `site/index.html`、`site/styles.css` 和 `site/app.js` 三个静态站文件；正式推广前同步复核 `docs/knowledge-source-register.md`。
 - 开源文档站：保留 `LICENSE`、`CONTRIBUTING.md`、`ATTRIBUTION.md`，并在页面页脚展示 Privacy、Terms、GitHub 和 License。
 - Google AdSense：先完成自有域名和 HTTPS，再按 `docs/google-ads-and-adsense-setup.md` 申请站点审核；通过前不要添加假广告 ID。
 - Google Ads：先按 `docs/google-ads-campaign-plan.md` 投小预算搜索广告，转化目标只看开始学习、下载评分表、打开 GitHub 和打开 OPC 剧本。
