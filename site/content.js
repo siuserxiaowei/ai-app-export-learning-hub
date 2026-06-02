@@ -35,14 +35,14 @@ const pathSteps = [
     meta: "Day 1 / 30-60 分钟",
     title: "建立正确认知",
     body: "先读学习指南，理解出海不是翻译、AI 功能不等于产品、下载量不是最终指标。",
-    href: "../docs/learning-guide.md"
+    href: "../docs/learning-guide.html"
   },
   {
     number: "02",
     meta: "Day 2-3 / 2 个案例起步",
     title: "拆一个可迁移案例",
     body: "从竞品学习册里选 2 个案例，回答它服务谁、替代了什么旧流程、为什么能收费。",
-    href: "../docs/case-study-workbook.md"
+    href: "../docs/case-study-workbook.html"
   },
   {
     number: "03",
@@ -56,7 +56,7 @@ const pathSteps = [
     meta: "Day 6-7 / 不写代码验证",
     title: "验证渠道与付费意愿",
     body: "按 7 天学习计划找到第一个低成本渠道，至少让 5 个目标用户看过你的方向假设。",
-    href: "../docs/7-day-learning-plan.md"
+    href: "../docs/7-day-learning-plan.html"
   }
 ];
 
@@ -170,7 +170,7 @@ const topics = [
         steps: ["筛近期上升应用", "看截图、定价、评价和更新频率", "记录它没有服务好的细分用户"],
         pitfalls: ["只复制第一名", "忽视本地化页面", "没有验证自己能否触达同类用户"],
         source: "经验判断，需结合 App Store / Google Play / Product Hunt 实测",
-        sourceUrls: ["../docs/research-evidence-register.md"],
+        sourceUrls: ["../docs/research-evidence-register.html"],
         verified: lastVerifiedDate
       }
     ]
@@ -194,7 +194,7 @@ const topics = [
         steps: ["冻结原始版本", "逐段标注意图", "用历史客户样本跑输出", "把隐含经验写成评分表"],
         pitfalls: ["直接让新人复制粘贴", "没有样本回放", "只优化措辞不提炼业务判断"],
         source: "经验判断，适合作为内部 SOP 和客户交付流程",
-        sourceUrls: ["../docs/facilitator-guide.md"],
+        sourceUrls: ["../docs/facilitator-guide.html"],
         verified: lastVerifiedDate
       },
       {
@@ -204,7 +204,7 @@ const topics = [
         steps: ["定义唯一输入", "定义唯一输出", "让客户判断输出是否能直接用", "记录所有人工修补点"],
         pitfalls: ["MVP 功能太多", "输出没有验收标准", "没有把人工服务过程产品化"],
         source: "经验判断，结合站内 7 天学习计划",
-        sourceUrls: ["../docs/7-day-learning-plan.md"],
+        sourceUrls: ["../docs/7-day-learning-plan.html"],
         verified: lastVerifiedDate
       },
       {
@@ -238,7 +238,7 @@ const topics = [
         steps: ["找到首页承诺", "找到定价页", "看用户评价中的真实任务", "写出结果链路"],
         pitfalls: ["照抄功能", "忽视品牌信任层", "不看差评"],
         source: "站内案例学习册",
-        sourceUrls: ["../docs/case-study-workbook.md"],
+        sourceUrls: ["../docs/case-study-workbook.html"],
         verified: lastVerifiedDate
       },
       {
@@ -248,7 +248,7 @@ const topics = [
         steps: ["拆出最小场景", "删掉平台级功能", "保留可展示结果", "设计一个渠道实验"],
         pitfalls: ["模仿大厂首页", "一开始做多人协作", "忽略素材版权"],
         source: "站内品牌拆解手册",
-        sourceUrls: ["../docs/brand-teardown-handbook.md"],
+        sourceUrls: ["../docs/brand-teardown-handbook.html"],
         verified: lastVerifiedDate
       },
       {
@@ -258,7 +258,7 @@ const topics = [
         steps: ["记录访问日期", "保存公开来源链接", "标注推断而非事实", "每季度复核重点案例"],
         pitfalls: ["把旧截图当现状", "用二手资料当权威", "不标注版权边界"],
         source: "站内研究证据登记表",
-        sourceUrls: ["../docs/research-evidence-register.md"],
+        sourceUrls: ["../docs/research-evidence-register.html"],
         verified: lastVerifiedDate
       }
     ]
@@ -458,7 +458,7 @@ const topics = [
         steps: ["写自己的使用场景", "展示失败和改进", "给出可复制模板", "把内容导向试用"],
         pitfalls: ["批量生成 Top 10 文章", "创始人完全隐身", "只做官网不做分发"],
         source: "经验判断，结合公开构建和冷启动案例",
-        sourceUrls: ["../docs/public-content-pack.md"],
+        sourceUrls: ["../docs/public-content-pack.html"],
         verified: lastVerifiedDate
       },
       {
@@ -468,7 +468,7 @@ const topics = [
         steps: ["列主付费结果", "拆出一个免费前置任务", "让免费输出自然暴露付费需求", "埋转化入口"],
         pitfalls: ["免费工具和主产品无关", "吸引低意愿用户", "没有追踪转化"],
         source: "经验判断，结合站内公开内容包",
-        sourceUrls: ["../docs/public-content-pack.md"],
+        sourceUrls: ["../docs/public-content-pack.html"],
         verified: lastVerifiedDate
       },
       {
@@ -478,7 +478,7 @@ const topics = [
         steps: ["公开贡献规则", "提供来源格式", "把政策更新标注日期", "用 GitHub Issue/PR 承接反馈"],
         pitfalls: ["没有来源要求", "不区分事实和经验", "政策内容过期不标注"],
         source: "站内 CONTRIBUTING 与研究证据登记",
-        sourceUrls: ["../CONTRIBUTING.md", "../docs/research-evidence-register.md"],
+        sourceUrls: ["../CONTRIBUTING.html", "../docs/research-evidence-register.html"],
         verified: lastVerifiedDate
       }
     ]

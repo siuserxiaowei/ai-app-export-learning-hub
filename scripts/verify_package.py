@@ -52,6 +52,15 @@ REQUIRED_PATHS = [
     "site/google-ads-config.js",
     "site/google-ads-config.example.js",
     "site/tracking.js",
+    "scripts/render_markdown_pages.py",
+]
+
+ROOT_MARKDOWN_PATHS = [
+    "README.md",
+    "DELIVERY_INDEX.md",
+    "QA_REPORT.md",
+    "CONTRIBUTING.md",
+    "ATTRIBUTION.md",
 ]
 
 FORBIDDEN_PATTERNS = [
@@ -413,6 +422,8 @@ def check_site_links() -> None:
                 fail(f"{html_path} local link target missing: {raw}")
 
     html = read("site/index.html")
+    if re.search(r'href="[^"]+\.md(?:[#?"]|$)', html):
+        fail("site/index.html should link rendered HTML pages, not raw Markdown files")
     for required in [
         "学习路径",
         "核心结论",
@@ -429,6 +440,71 @@ def check_site_links() -> None:
     ]:
         if required not in html:
             fail(f"site missing required visible text: {required}")
+
+
+def check_rendered_markdown_pages() -> None:
+    markdown_paths = [ROOT / path for path in ROOT_MARKDOWN_PATHS]
+    markdown_paths.extend(sorted((ROOT / "docs").glob("*.md")))
+    rendered_paths = [path.with_suffix(".html") for path in markdown_paths]
+    rendered_paths.extend([ROOT / "docs/index.html", ROOT / "LICENSE.html"])
+
+    missing = [path.relative_to(ROOT).as_posix() for path in rendered_paths if not path.exists()]
+    if missing:
+        fail(f"missing rendered HTML pages: {missing}")
+
+    public_texts = {
+        "site/index.html": read("site/index.html"),
+        "site/content.js": read("site/content.js"),
+        "llms.txt": read("llms.txt"),
+    }
+    for path, text in public_texts.items():
+        if re.search(r"\.md\b", text):
+            fail(f"{path} still exposes raw Markdown links")
+
+    class Parser(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.links: list[str] = []
+            self.ids: set[str] = set()
+
+        def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+            attrs_dict = dict(attrs)
+            if attrs_dict.get("id"):
+                self.ids.add(attrs_dict["id"] or "")
+            for attr in ("href", "src"):
+                if attrs_dict.get(attr):
+                    self.links.append(attrs_dict[attr] or "")
+
+    for html_path in rendered_paths:
+        text = html_path.read_text(encoding="utf-8")
+        rel_path = html_path.relative_to(ROOT).as_posix()
+        for required in ["<!doctype html>", "doc-body", "doc-article"]:
+            if required not in text and rel_path != "docs/index.html":
+                fail(f"{rel_path} missing rendered document marker: {required}")
+        if re.search(r'href="[^"]+\.md(?:[#?"]|$)', text):
+            fail(f"{rel_path} contains a raw Markdown href")
+        if re.search(r"https?://(?:gptimage2\.store|siuserxiaowei\.github\.io/ai-app-export-learning-hub)/[^\"\\s<]+\.md", text):
+            fail(f"{rel_path} contains a public raw Markdown URL")
+
+        parser = Parser()
+        parser.feed(text)
+        for raw in parser.links:
+            parsed = urlparse(raw)
+            target_without_fragment = raw.split("#", 1)[0].split("?", 1)[0]
+            if parsed.fragment and not parsed.scheme and not target_without_fragment:
+                if parsed.fragment not in parser.ids:
+                    fail(f"{rel_path} missing fragment target: {raw}")
+            if (
+                not target_without_fragment
+                or parsed.scheme
+                or raw.startswith("//")
+                or raw.startswith("mailto:")
+                or raw.startswith("tel:")
+            ):
+                continue
+            target = (html_path.parent / unquote(target_without_fragment)).resolve()
+            if not target.exists():
+                fail(f"{rel_path} local link target missing: {raw}")
 
 
 def check_open_source_and_ads_readiness() -> None:
@@ -473,6 +549,10 @@ def check_seo_readiness() -> None:
         "http://gptimage2.store/site/index.html",
         "http://gptimage2.store/site/privacy.html",
         "http://gptimage2.store/site/terms.html",
+        "http://gptimage2.store/docs/index.html",
+        "http://gptimage2.store/docs/learning-guide.html",
+        "http://gptimage2.store/README.html",
+        "http://gptimage2.store/LICENSE.html",
         "<lastmod>2026-06-02</lastmod>",
     ]:
         if phrase not in sitemap:
@@ -516,6 +596,7 @@ def main() -> None:
     check_opc_app_playbook()
     check_site_knowledge_base()
     check_site_links()
+    check_rendered_markdown_pages()
     check_open_source_and_ads_readiness()
     check_seo_readiness()
     print("OK: learning hub package verification passed")

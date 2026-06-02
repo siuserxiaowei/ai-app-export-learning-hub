@@ -101,6 +101,8 @@ Repository: https://github.com/siuserxiaowei/ai-app-export-learning-hub
 open site/index.html
 ```
 
+公开访客阅读深度资料时，请使用生成后的 HTML 页面，例如 `docs/learning-guide.html`、`docs/case-study-workbook.html`、`README.html`。仓库中的 `*.md` 文件保留给编辑和协作使用，发布站点的按钮和资料入口不再直接指向 raw Markdown。
+
 线上页面：
 
 http://gptimage2.store/site/index.html

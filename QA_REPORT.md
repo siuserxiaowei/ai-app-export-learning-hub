@@ -42,6 +42,15 @@
 - 核心外链短名单验证通过：GitHub、Sensor Tower、TechCrunch、Apple Review、Google Play AI policy、Google Data Safety、Apple localization、Apple custom product pages、Google store listing experiments、Apple subscriptions、RevenueCat 2026、RevenueCat 2025、Apple EU DSA、Apple App Privacy Details、Google User Data policy、Google Developer Policy、GSMA Mobile Economy、Photoroom customer stories、RevenueCat dub case 均返回 200 或可接受跳转。
 - `http://gptimage2.store/site/index.html` 和 `http://gptimage2.store/` 返回 200；`https://gptimage2.store/` 仍返回 000，保留为正式推广前的 HTTPS 证书修复项。
 
+## 2026-06-02 文档 HTML 渲染修复验收
+
+- 已新增 `scripts/render_markdown_pages.py`，将根目录 5 个 Markdown 文件和 `docs/` 下 16 个 Markdown 文件生成对应 HTML 页面，并额外生成 `docs/index.html` 与 `LICENSE.html`。
+- 首页、动态内容来源链接和 `llms.txt` 已从公开 `.md` 入口切换到 `.html` 入口，避免访客看到 raw Markdown。
+- 文档页统一使用站点样式，包含文档导航、标题区、正文卡片、目录和页面信息；表格、代码块、链接和移动端长 URL 已做响应式处理。
+- `sitemap.xml` 已收录生成后的文档 HTML 页面。
+- `python3 scripts/verify_package.py` 已加入防回归检查：公开入口不得暴露 `.md` 链接；每个 Markdown 必须有对应 HTML；渲染页本地链接必须存在。
+- 已用系统 Chrome 验证首页点击“学习指南”会进入 `docs/learning-guide.html`，并验证 `docs/index.html`、`docs/learning-guide.html`、`docs/case-study-workbook.html`、`docs/knowledge-source-register.html`、`README.html`、`LICENSE.html` 都是 HTML 渲染页，不是 Markdown 源码页。
+
 ## 完成项
 
 - 已将 `main` 合并到 `agent/qa-polish`，合并方式为 fast-forward。

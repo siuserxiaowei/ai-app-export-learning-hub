@@ -42,6 +42,7 @@
 | `site/google-ads-config.js` | Google Ads no-op 配置，默认 `enabled: false`。 | 拿到真实 ID 后启用。 |
 | `site/google-ads-config.example.js` | Google Ads 配置示例，保留占位字段。 | 给后续配置参考，不直接填假 ID。 |
 | `site/tracking.js` | 转化追踪脚本；默认不加载 Google tag，启用后追踪关键 CTA。 | Google Ads conversion actions 创建后使用。 |
+| `scripts/render_markdown_pages.py` | 将根目录和 `docs/` 下的 Markdown 资料生成 HTML 渲染页，并同步 sitemap。 | 每次新增或修改公开文档后运行，避免访客看到 raw Markdown。 |
 | `sitemap.xml` | 搜索引擎站点地图，当前使用 HTTP canonical，待 HTTPS 修复后切换。 | SEO 上线前复核域名和协议。 |
 | `robots.txt` | 搜索引擎抓取声明。 | 与站点一起发布。 |
 | `llms.txt` | AI 检索工具可读的项目摘要和入口索引。 | 给 LLM / agent 检索时快速理解项目结构。 |
@@ -78,7 +79,7 @@
 - 小红书/朋友圈/社群海报：使用 `docs/public-content-pack.md` 的 10 张学习卡片文案。
 - 训练营或打卡：组合 `docs/7-day-learning-plan.md`、`docs/facilitator-guide.md` 和 `data/opportunity-scorecard.csv`。
 - 产品方向讨论会：先让学习者读 `docs/case-study-workbook.md`，再用 `data/opportunity-scorecard.csv` 做评分。
-- 对外公开页面：发布 `site/index.html`、`site/styles.css`、`site/app.js`、`site/content*.js`、`sitemap.xml`、`robots.txt` 和 `llms.txt`；正式推广前同步复核 `docs/knowledge-source-register.md`。
+- 对外公开页面：发布 `site/index.html`、`site/styles.css`、`site/app.js`、`site/content*.js`、生成后的 `*.html` 文档页、`sitemap.xml`、`robots.txt` 和 `llms.txt`；正式推广前同步复核 `docs/knowledge-source-register.md`。
 - 开源文档站：保留 `LICENSE`、`CONTRIBUTING.md`、`ATTRIBUTION.md`，并在页面页脚展示 Privacy、Terms、GitHub 和 License。
 - Google AdSense：先完成自有域名和 HTTPS，再按 `docs/google-ads-and-adsense-setup.md` 申请站点审核；通过前不要添加假广告 ID。
 - Google Ads：先按 `docs/google-ads-campaign-plan.md` 投小预算搜索广告，转化目标只看开始学习、下载评分表、打开 GitHub 和打开 OPC 剧本。

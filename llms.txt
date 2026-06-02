@@ -5,10 +5,10 @@
 ## 核心页面
 
 - 首页与知识库：http://gptimage2.store/site/index.html
-- 来源登记：http://gptimage2.store/docs/knowledge-source-register.md
-- 研究证据：http://gptimage2.store/docs/research-evidence-register.md
-- 学习指南：http://gptimage2.store/docs/learning-guide.md
-- 案例学习册：http://gptimage2.store/docs/case-study-workbook.md
+- 来源登记：http://gptimage2.store/docs/knowledge-source-register.html
+- 研究证据：http://gptimage2.store/docs/research-evidence-register.html
+- 学习指南：http://gptimage2.store/docs/learning-guide.html
+- 案例学习册：http://gptimage2.store/docs/case-study-workbook.html
 
 ## 使用边界
 

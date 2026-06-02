@@ -110,11 +110,10 @@ enabled: false
 
 ## 6. 文档页广告化边界
 
-当前 `docs/*.md` 在 GitHub Pages 上以 Markdown 文件形式访问，不能直接承载 AdSense 广告位。第一阶段只在 HTML 静态站首页接入广告和追踪。
+当前 `docs/*.md` 已通过 `scripts/render_markdown_pages.py` 生成对应的 `docs/*.html` 渲染页。第一阶段仍优先只在 HTML 静态站首页接入广告和追踪；如果后续要在文档页放广告，应在生成模板里统一加入广告位和隐私提示。
 
 如果后续希望文档页也展示广告，应新增 HTML 文档渲染层：
 
 - 保留 Markdown 源文件。
 - 新增 `site/docs.html` 或生成式 HTML wrapper。
 - 广告脚本只放在 HTML 页面，不放进 Markdown 源文件。
-
