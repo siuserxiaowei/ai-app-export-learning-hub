@@ -19,6 +19,7 @@ REQUIRED_PATHS = [
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
     "docs/case-study-workbook.md",
+    "docs/brand-teardown-handbook.md",
     "docs/7-day-learning-plan.md",
     "docs/facilitator-guide.md",
     "data/opportunity-scorecard.csv",
@@ -144,6 +145,24 @@ def check_goal_matrix() -> None:
             fail(f"goal coverage matrix missing phrase: {phrase}")
 
 
+def check_brand_handbook() -> None:
+    text = read("docs/brand-teardown-handbook.md")
+    required = [
+        "品牌拆解的 8 个问题",
+        "10 个品牌样本",
+        "品牌命名模式",
+        "首页首屏模板",
+        "品牌评分表",
+        "常见坏味道",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"brand handbook missing phrase: {phrase}")
+    for brand in ["Cal AI", "Photoroom", "Gamma", "HeyGen", "Lovart", "Captions", "ElevenLabs"]:
+        if brand not in text:
+            fail(f"brand handbook missing brand: {brand}")
+
+
 def check_site_links() -> None:
     html = read("site/index.html")
     local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
@@ -163,6 +182,7 @@ def main() -> None:
     check_public_pack()
     check_bilingual_study_note()
     check_goal_matrix()
+    check_brand_handbook()
     check_site_links()
     print("OK: learning hub package verification passed")
 
