@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import csv
+from html.parser import HTMLParser
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,12 +15,19 @@ REQUIRED_PATHS = [
     "README.md",
     "DELIVERY_INDEX.md",
     "QA_REPORT.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "ATTRIBUTION.md",
+    "CNAME",
+    "ads.txt.template",
     "docs/source-brief.md",
     "docs/bilingual-study-note.md",
     "docs/goal-coverage-matrix.md",
     "docs/final-completion-audit.md",
     "docs/authorized-transcript-workflow.md",
     "docs/research-evidence-register.md",
+    "docs/google-ads-and-adsense-setup.md",
+    "docs/google-ads-campaign-plan.md",
     "docs/opc-app-playbook.md",
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
@@ -28,8 +37,13 @@ REQUIRED_PATHS = [
     "docs/facilitator-guide.md",
     "data/opportunity-scorecard.csv",
     "site/index.html",
+    "site/privacy.html",
+    "site/terms.html",
     "site/styles.css",
     "site/app.js",
+    "site/google-ads-config.js",
+    "site/google-ads-config.example.js",
+    "site/tracking.js",
 ]
 
 FORBIDDEN_PATTERNS = [
@@ -228,14 +242,83 @@ def check_opc_app_playbook() -> None:
 
 
 def check_site_links() -> None:
+    class Parser(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.links: list[str] = []
+            self.ids: set[str] = set()
+
+        def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+            attrs_dict = dict(attrs)
+            if attrs_dict.get("id"):
+                self.ids.add(attrs_dict["id"] or "")
+            for attr in ("href", "src"):
+                if attrs_dict.get(attr):
+                    self.links.append(attrs_dict[attr] or "")
+
+    for html_path in ["site/index.html", "site/privacy.html", "site/terms.html"]:
+        html = read(html_path)
+        parser = Parser()
+        parser.feed(html)
+        site_dir = ROOT / "site"
+        for raw in parser.links:
+            parsed = urlparse(raw)
+            target_without_fragment = raw.split("#", 1)[0].split("?", 1)[0]
+            if parsed.fragment and not parsed.scheme and not target_without_fragment:
+                if parsed.fragment not in parser.ids:
+                    fail(f"{html_path} missing fragment target: {raw}")
+            if (
+                not target_without_fragment
+                or parsed.scheme
+                or raw.startswith("//")
+                or raw.startswith("mailto:")
+                or raw.startswith("tel:")
+            ):
+                continue
+            target = (site_dir / unquote(target_without_fragment)).resolve()
+            if not target.exists():
+                fail(f"{html_path} local link target missing: {raw}")
+
     html = read("site/index.html")
-    local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
-    for link in local_links:
-        if not (ROOT / "site" / link).resolve().exists():
-            fail(f"site local link target missing: {link}")
-    for required in ["学习路径", "核心结论", "竞品", "资料"]:
+    for required in ["学习路径", "核心结论", "竞品", "资料", "Privacy", "Terms", "GitHub", "License"]:
         if required not in html:
             fail(f"site missing required visible text: {required}")
+
+
+def check_open_source_and_ads_readiness() -> None:
+    license_text = read("LICENSE")
+    if "CC BY 4.0" not in license_text or "creativecommons.org/licenses/by/4.0" not in license_text:
+        fail("LICENSE does not clearly declare CC BY 4.0")
+
+    cname = read("CNAME").strip()
+    if cname != "gptimage2.store":
+        fail(f"CNAME should be gptimage2.store, got {cname!r}")
+
+    readme = read("README.md")
+    for phrase in ["开源协议", "广告和隐私说明", "https://gptimage2.store/"]:
+        if phrase not in readme:
+            fail(f"README missing open-source/ads phrase: {phrase}")
+
+    live_config = read("site/google-ads-config.js")
+    if "enabled: false" not in live_config:
+        fail("live Google Ads config must default to enabled: false")
+    for forbidden in ["AW-YOUR_CONVERSION_ID", "YOUR_START_LEARNING_LABEL", "YOUR_SCORECARD_LABEL"]:
+        if forbidden in live_config:
+            fail(f"live Google Ads config contains placeholder: {forbidden}")
+
+    tracking = read("site/tracking.js")
+    for required in ["enabled === true", "data-conversion", "gtag/js", "learningHubTrackConversion"]:
+        if required not in tracking:
+            fail(f"tracking.js missing required phrase: {required}")
+
+    html = read("site/index.html")
+    for conversion in ["startLearning", "downloadScorecard", "openGithub", "openOpcPlaybook"]:
+        if f'data-conversion="{conversion}"' not in html:
+            fail(f"site missing conversion marker: {conversion}")
+
+    ads_template = read("ads.txt.template").strip()
+    if ads_template != "google.com, pub-YOUR_PUBLISHER_ID, DIRECT, f08c47fec0942fa0":
+        fail("ads.txt.template does not match expected Google AdSense template")
 
 
 def main() -> None:
@@ -252,6 +335,7 @@ def main() -> None:
     check_research_evidence_register()
     check_opc_app_playbook()
     check_site_links()
+    check_open_source_and_ads_readiness()
     print("OK: learning hub package verification passed")
 
 

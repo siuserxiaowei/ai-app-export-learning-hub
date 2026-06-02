@@ -23,8 +23,9 @@
 8. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
 9. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
 10. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
-11. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md)。
-12. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
+11. 如果要开源引用、接 Google AdSense 或用 Google Ads 小预算推广，阅读 [Google Ads 与 AdSense 接入说明](docs/google-ads-and-adsense-setup.md) 和 [Google Ads 小预算推广计划](docs/google-ads-campaign-plan.md)。
+12. 需要复查市场报告、政策和竞品来源时，阅读 [研究证据登记表](docs/research-evidence-register.md)。
+13. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
 
 ## 资料目录
 
@@ -37,6 +38,8 @@
 | [docs/final-completion-audit.md](docs/final-completion-audit.md) | 最终完成度审计，列出线上证据、逐项目标判断、验证命令和不能声明完成的部分。 |
 | [docs/research-evidence-register.md](docs/research-evidence-register.md) | 研究证据登记表，集中维护市场报告、平台政策、竞品/品牌和上线证据。 |
 | [docs/authorized-transcript-workflow.md](docs/authorized-transcript-workflow.md) | 授权逐字稿处理流程，说明授权文本到位后如何生成私有逐字稿、译文和公开学习材料。 |
+| [docs/google-ads-and-adsense-setup.md](docs/google-ads-and-adsense-setup.md) | Google AdSense 展示广告、Google Ads 转化追踪和域名接入说明。 |
+| [docs/google-ads-campaign-plan.md](docs/google-ads-campaign-plan.md) | Google Ads 小预算投放计划、关键词、广告文案和转化目标。 |
 | [docs/learning-guide.md](docs/learning-guide.md) | 主学习文档，讲清小团队做 AI App 出海的判断框架。 |
 | [docs/case-study-workbook.md](docs/case-study-workbook.md) | 10 个竞品案例学习册，适合课堂练习和产品迁移。 |
 | [docs/brand-teardown-handbook.md](docs/brand-teardown-handbook.md) | 品牌拆解手册，训练学习者看懂命名、首页、信任层、定价和传播钩子。 |
@@ -46,11 +49,41 @@
 | [docs/public-content-pack.md](docs/public-content-pack.md) | 可发布长文、30 分钟公开课讲稿和 10 张卡片文案。 |
 | [docs/facilitator-guide.md](docs/facilitator-guide.md) | 讲师和社群运营使用说明。 |
 | [site/index.html](site/index.html) | 静态学习站入口，配合 `site/styles.css` 和 `site/app.js` 使用。 |
+| [site/privacy.html](site/privacy.html) | 隐私说明页面，适合 AdSense / Google Ads 审核前准备。 |
+| [site/terms.html](site/terms.html) | 使用条款页面，说明学习用途、广告边界和免责声明。 |
 | [QA_REPORT.md](QA_REPORT.md) | 验收范围、版权边界和基础检查记录。 |
+| [LICENSE](LICENSE) | CC BY 4.0 开源协议说明。 |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 贡献规则、来源引用和版权边界。 |
+| [ATTRIBUTION.md](ATTRIBUTION.md) | 署名方式、第三方内容边界和广告边界。 |
+
+## 开源协议
+
+除非特别说明，本项目文档、表格和静态站内容采用 [CC BY 4.0](LICENSE)。你可以复制、传播和改编，包括商用，但需要保留适当署名、协议链接和改动说明。
+
+推荐引用格式：
+
+```text
+AI App Export Learning Hub, by siuserxiaowei, licensed under CC BY 4.0.
+Project: https://gptimage2.store/
+Repository: https://github.com/siuserxiaowei/ai-app-export-learning-hub
+```
+
+贡献内容前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，尤其是不要提交未授权完整逐字稿、完整逐句翻译或大段第三方付费资料。
 
 ## 版权边界
 
 本资料包不提供原视频全文转写，也不提供逐句译文。资料中只保留必要的合规短摘录、分段转述、英文摘要、教学化分析和公开来源引用。对外发布时，建议引用资料包观点和公开来源，不要把源视频内容包装成原作者授权课程或官方翻译稿。
+
+## 广告和隐私说明
+
+项目已为后续 Google AdSense 展示广告和 Google Ads 买量推广预留结构：
+
+- `ads.txt.template`：拿到真实 AdSense publisher ID 后再复制成根目录 `ads.txt`。
+- `site/google-ads-config.js`：当前默认关闭，不加载 Google tag。
+- `site/tracking.js`：只有配置启用且存在真实 conversion ID 时才发送转化事件。
+- `site/privacy.html` 和 `site/terms.html`：用于说明隐私、广告、学习用途和免责声明。
+
+当前不会写入假的 `ca-pub-...`、`AW-...` 或 conversion label。
 
 ## 打开静态站
 
@@ -61,5 +94,9 @@ open site/index.html
 ```
 
 线上页面：
+
+https://gptimage2.store/
+
+GitHub Pages 备用地址：
 
 https://siuserxiaowei.github.io/ai-app-export-learning-hub/

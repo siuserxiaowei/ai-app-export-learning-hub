@@ -15,6 +15,7 @@
 | 项目 | 证据 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/siuserxiaowei/ai-app-export-learning-hub |
+| 自有域名目标 | https://gptimage2.store/ |
 | GitHub Pages 首页 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/ |
 | 静态学习站 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/site/index.html |
 | 品牌拆解手册 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/brand-teardown-handbook.md |
@@ -23,6 +24,10 @@
 | 合规双语学习稿 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/bilingual-study-note.md |
 | 授权逐字稿流程 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/authorized-transcript-workflow.md |
 | 研究证据登记表 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/research-evidence-register.md |
+| Google 广告接入说明 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/google-ads-and-adsense-setup.md |
+| Google Ads 投放计划 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/google-ads-campaign-plan.md |
+| Privacy | https://siuserxiaowei.github.io/ai-app-export-learning-hub/site/privacy.html |
+| Terms | https://siuserxiaowei.github.io/ai-app-export-learning-hub/site/terms.html |
 
 ## 原始目标逐项审计
 
@@ -36,6 +41,9 @@
 | 拆解更好的品牌 | `docs/brand-teardown-handbook.md`。 | 已完成。覆盖命名、首页首屏、信任层、定价、传播钩子、品牌评分和 10 个品牌样本。 |
 | 做成对外可学习内容 | `README.md`、`DELIVERY_INDEX.md`、`docs/public-content-pack.md`、`docs/facilitator-guide.md`、`site/index.html`。 | 已完成。可用于自学、公开课、社群带学、公众号长文和静态站浏览。 |
 | 线上发布 | GitHub 仓库和 GitHub Pages 页面。 | 已完成。Pages 从 `main` 根目录发布，根页自动跳转到学习站。 |
+| 开源文档化 | `LICENSE`、`CONTRIBUTING.md`、`ATTRIBUTION.md`、`README.md`。 | 已完成。当前采用 CC BY 4.0，并写明署名、贡献和版权边界。 |
+| Google AdSense 准备 | `ads.txt.template`、`site/privacy.html`、`site/terms.html`、`docs/google-ads-and-adsense-setup.md`。 | 已完成接入准备。未写入假 publisher ID，需 AdSense 审核通过后启用。 |
+| Google Ads 推广准备 | `site/google-ads-config.js`、`site/google-ads-config.example.js`、`site/tracking.js`、`docs/google-ads-campaign-plan.md`。 | 已完成 no-op 追踪框架。需拿到真实 `AW-...` 和 conversion labels 后启用。 |
 
 ## 文件交付清单
 
@@ -62,6 +70,18 @@
 | `site/app.js` | 已完成 | 静态站交互。 |
 | `QA_REPORT.md` | 已完成 | 验收报告。 |
 | `scripts/verify_package.py` | 已完成 | 自动验证脚本。 |
+| `LICENSE` | 已完成 | CC BY 4.0 协议说明。 |
+| `CONTRIBUTING.md` | 已完成 | 贡献规则和版权边界。 |
+| `ATTRIBUTION.md` | 已完成 | 署名方式和第三方内容边界。 |
+| `CNAME` | 已完成 | GitHub Pages 自有域名配置。 |
+| `ads.txt.template` | 已完成 | AdSense `ads.txt` 模板。 |
+| `docs/google-ads-and-adsense-setup.md` | 已完成 | Google AdSense / Google Ads 接入说明。 |
+| `docs/google-ads-campaign-plan.md` | 已完成 | Google Ads 小预算推广计划。 |
+| `site/privacy.html` | 已完成 | 隐私说明页面。 |
+| `site/terms.html` | 已完成 | 使用条款页面。 |
+| `site/google-ads-config.js` | 已完成 | 默认关闭的 Google Ads 配置。 |
+| `site/google-ads-config.example.js` | 已完成 | Google Ads 配置示例。 |
+| `site/tracking.js` | 已完成 | 转化追踪脚本。 |
 
 ## 当前验证证据
 
@@ -92,6 +112,21 @@ gh api repos/siuserxiaowei/ai-app-export-learning-hub/pages
 ```
 
 结果：GitHub Pages 状态为 `built`，发布源为 `main` 分支根目录，HTTPS 已启用。
+
+已新增广告和开源准备：
+
+- `LICENSE` 使用 CC BY 4.0。
+- `CNAME` 指向 `gptimage2.store`。
+- `site/google-ads-config.js` 默认 `enabled: false`，不加载 Google tag。
+- 首页关键 CTA 已配置 `data-conversion`：开始学习、下载评分表、打开 GitHub、打开 OPC 方向剧本。
+- `site/privacy.html` 和 `site/terms.html` 已加入静态站页脚。
+
+仍需外部完成：
+
+- 在域名 DNS 面板把 `gptimage2.store` 指向 GitHub Pages。
+- 拿到真实 AdSense publisher ID 后生成 `ads.txt`。
+- AdSense 审核 Ready 后再加入 Auto ads script。
+- 拿到真实 Google Ads conversion ID 和 labels 后启用 `site/google-ads-config.js`。
 
 ## 不能声明完成的部分
 

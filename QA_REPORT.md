@@ -16,6 +16,9 @@
 - 研究证据登记表
 - 机会评分表 CSV
 - 静态学习网站
+- 开源协议、贡献规则和署名说明
+- Google AdSense / Google Ads 接入准备
+- 隐私说明和使用条款页面
 - 交付索引和入口说明
 
 ## 完成项
@@ -37,6 +40,13 @@
 - 修复了 `README.md` 中静态站打开命令的过期 worktree 绝对路径，改为包内相对路径。
 - 6 个 agent worktree 已合并回 `main` 并回收；分支记录保留，便于后续追溯。
 - 追加更新了 RevenueCat 2026、Lovart、Photoroom、Gamma、HeyGen、ElevenLabs 等参考链接。
+- 新增 `LICENSE`，采用 CC BY 4.0，并在 `README.md`、`DELIVERY_INDEX.md` 和静态站页脚加入开源引用入口。
+- 新增 `CONTRIBUTING.md` 和 `ATTRIBUTION.md`，说明贡献规则、署名方式、第三方内容边界和广告边界。
+- 新增 `CNAME`，自有域名目标为 `gptimage2.store`。
+- 新增 `ads.txt.template`，只保留 AdSense publisher ID 占位模板；未生成含假 ID 的 `ads.txt`。
+- 新增 `docs/google-ads-and-adsense-setup.md` 和 `docs/google-ads-campaign-plan.md`，分别覆盖接入步骤和小预算投放计划。
+- 新增 `site/privacy.html` 和 `site/terms.html`，并在静态站页脚加入 Privacy、Terms、GitHub、License。
+- 新增 `site/google-ads-config.js`、`site/google-ads-config.example.js` 和 `site/tracking.js`，当前默认关闭 Google tag；首页关键 CTA 已添加 `data-conversion`。
 
 ## 版权边界
 
@@ -44,6 +54,8 @@
 - 不输出完整逐句翻译。
 - 仅使用短摘录、分段转述、英文摘要、教学化分析和公开来源引用。
 - 对外发布时不将资料包包装成原作者授权课程、官方译文或源视频复刻稿。
+- 广告展示不代表项目作者推荐广告产品。
+- 当前未写入真实或伪造的 AdSense / Google Ads ID；拿到真实 ID 且审核通过后再启用。
 
 ## 验证命令
 
@@ -145,6 +157,12 @@ PY
 rg -n "逐字|逐句|全文|完整.*(翻译|译文|转写|字幕|逐字稿)|transcript|translation|原文|字幕|内部|备忘|memo|confidential|not for" README.md DELIVERY_INDEX.md QA_REPORT.md docs site data
 rg -n "^[0-9]{1,2}:[0-9]{2}|^[0-9]{2}:[0-9]{2}|\[[0-9]{1,2}:[0-9]{2}\]|Speaker|主持人|采访者|受访者|雷子：|雷子:" docs README.md DELIVERY_INDEX.md QA_REPORT.md site
 git worktree list
+python3 scripts/verify_package.py
+gh api repos/siuserxiaowei/ai-app-export-learning-hub/pages
+dig +short gptimage2.store A
+dig +short gptimage2.store AAAA
+dig +short www.gptimage2.store CNAME
+curl -I -L https://gptimage2.store/
 ```
 
 ## 验证结果
@@ -157,9 +175,14 @@ git worktree list
 - 核心外部来源轻量检查：RevenueCat 2026、Sensor Tower、GlobeNewswire、Photoroom、Gamma、HeyGen 均返回 200；ElevenLabs 返回 308 跳转；Lovart 页面经浏览器/web 打开可读，但普通脚本请求返回 404，记录为站点请求方式差异。
 - 内容风险搜索只命中版权边界说明、正常时间轴摘要、字幕/翻译作为产品功能描述，以及“内部”作为交接/团队场景描述；验证脚本内维护的已知误听词列表未命中交付内容。
 - `git worktree list` 仅保留主仓库工作区，临时 agent worktree 已清理。
+- 开源与广告准备检查通过：`LICENSE`、`CONTRIBUTING.md`、`ATTRIBUTION.md`、`CNAME`、`ads.txt.template`、Privacy、Terms 和 Google Ads no-op 追踪文件均存在。
+- `site/google-ads-config.js` 默认 `enabled: false`，不会加载 Google tag。
+- 首页 `data-conversion` 覆盖开始学习、下载评分表、打开 GitHub 和打开 OPC 剧本。
 
 ## 遗留限制
 
 - 外部网页链接已做轻量存活检查并修复发现的问题，但第三方站点未来仍可能改版、跳转、限流或失效。
 - 本次 QA 未重新下载、重转写或逐字复核原始视频；验收基于仓库内已交付内容和公开引用链接。
 - 市场数据、收入数字和政策条款只做引用链接可访问性与资料边界检查，未展开二次事实审计。
+- `gptimage2.store` 的 DNS 记录需要在域名注册商面板切换到 GitHub Pages；DNS 生效前自有域名无法稳定访问。
+- AdSense 和 Google Ads 账号、付款、审核、publisher ID、conversion ID 需要用户登录 Google 后完成；本项目只准备可接入结构。
