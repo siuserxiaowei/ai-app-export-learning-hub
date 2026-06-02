@@ -20,6 +20,7 @@
 | 品牌拆解手册 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/brand-teardown-handbook.md |
 | 目标覆盖矩阵 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/goal-coverage-matrix.md |
 | 合规双语学习稿 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/bilingual-study-note.md |
+| 授权逐字稿流程 | https://siuserxiaowei.github.io/ai-app-export-learning-hub/docs/authorized-transcript-workflow.md |
 
 ## 原始目标逐项审计
 
@@ -44,6 +45,7 @@
 | `docs/bilingual-study-note.md` | 已完成 | 合规双语学习稿和术语表。 |
 | `docs/goal-coverage-matrix.md` | 已完成 | 原目标覆盖矩阵。 |
 | `docs/final-completion-audit.md` | 已完成 | 本审计报告。 |
+| `docs/authorized-transcript-workflow.md` | 已完成 | 授权文本到位后的私有逐字稿、翻译稿和学习注释处理流程。 |
 | `docs/learning-guide.md` | 已完成 | 系统课程讲义。 |
 | `docs/case-study-workbook.md` | 已完成 | 10 个竞品案例学习册。 |
 | `docs/brand-teardown-handbook.md` | 已完成 | AI App 出海品牌拆解手册。 |
@@ -106,6 +108,6 @@ gh api repos/siuserxiaowei/ai-app-export-learning-hub/pages
 ## 后续维护建议
 
 1. 每月检查一次外部链接，尤其是 Douyin 短链、Lovart、TechCrunch、RevenueCat 和 Sensor Tower。
-2. 如果用户提供自己拥有授权的完整视频文本，可以新增一个私有授权版逐字稿文件；公开资料包仍不应放完整逐字稿。
+2. 如果用户提供自己拥有授权的完整视频文本，按 `docs/authorized-transcript-workflow.md` 在 `private/` 目录处理私有授权版逐字稿；公开资料包仍不应放未授权完整逐字稿。
 3. 若要继续产品化，可把 Markdown 资料转成 PDF、PPT 或小型课程页面。
 4. 若要继续做市场研究，可每季度更新 RevenueCat、Sensor Tower、App Store 趋势和新增 AI App 案例。

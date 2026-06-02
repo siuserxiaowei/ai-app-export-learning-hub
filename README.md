@@ -22,6 +22,7 @@
 7. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
 8. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
 9. 需要做最终验收或交接时，阅读 [最终完成度审计](docs/final-completion-audit.md)。
+10. 如果后续提供授权文本，按 [授权逐字稿处理流程](docs/authorized-transcript-workflow.md) 生成私有逐字稿、翻译稿和公开版学习材料。
 
 ## 资料目录
 
@@ -32,6 +33,7 @@
 | [docs/bilingual-study-note.md](docs/bilingual-study-note.md) | 合规双语学习稿，用中文转述、英文学习译稿和术语表替代完整逐字稿/逐句译文。 |
 | [docs/goal-coverage-matrix.md](docs/goal-coverage-matrix.md) | 原目标覆盖矩阵，说明哪些目标已完成、哪些采用合规替代、哪些不能声称完整完成。 |
 | [docs/final-completion-audit.md](docs/final-completion-audit.md) | 最终完成度审计，列出线上证据、逐项目标判断、验证命令和不能声明完成的部分。 |
+| [docs/authorized-transcript-workflow.md](docs/authorized-transcript-workflow.md) | 授权逐字稿处理流程，说明授权文本到位后如何生成私有逐字稿、译文和公开学习材料。 |
 | [docs/learning-guide.md](docs/learning-guide.md) | 主学习文档，讲清小团队做 AI App 出海的判断框架。 |
 | [docs/case-study-workbook.md](docs/case-study-workbook.md) | 10 个竞品案例学习册，适合课堂练习和产品迁移。 |
 | [docs/brand-teardown-handbook.md](docs/brand-teardown-handbook.md) | 品牌拆解手册，训练学习者看懂命名、首页、信任层、定价和传播钩子。 |

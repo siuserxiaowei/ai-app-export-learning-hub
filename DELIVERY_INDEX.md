@@ -12,6 +12,7 @@
 | `docs/bilingual-study-note.md` | 合规双语学习稿，包含中文学习稿、英文学习译稿、核心术语表和课堂练习。 | 适合课堂讲解、英文表达训练，以及解释为什么不交付完整逐字稿/逐句译文。 |
 | `docs/goal-coverage-matrix.md` | 原目标覆盖矩阵，逐项说明原始需求、当前交付证据、状态和限制。 | 适合交接、验收、版权边界解释和后续迭代。 |
 | `docs/final-completion-audit.md` | 最终完成度审计，包含线上证据、逐项目标判断、验证命令和不能声明完成的部分。 | 适合最终交接、对外发布前审计和后续维护。 |
+| `docs/authorized-transcript-workflow.md` | 授权逐字稿处理流程，说明授权文本到位后如何在私有目录处理完整逐字稿、译文和学习注释。 | 适合后续用户提供授权文本时继续处理，不建议公开放完整逐字稿。 |
 | `docs/learning-guide.md` | 主学习文档，讲清 AI App 出海的关键认知、选题框架、方向建议和作业模板。 | 可作为课程讲义、社群精华帖或付费资料主文档。 |
 | `docs/case-study-workbook.md` | 10 个竞品案例学习册，拆解 Cal AI、Photoroom、Gamma、HeyGen、Lovart 等案例。 | 适合工作坊练习、社群共读和产品方向讨论。 |
 | `docs/brand-teardown-handbook.md` | AI App 出海品牌拆解手册，覆盖命名、首页、信任层、定价、传播钩子和 10 个品牌样本。 | 适合品牌定位课、官网改版前检查、独立开发者产品命名和落地页练习。 |
@@ -40,7 +41,8 @@
 | 10 | `docs/facilitator-guide.md` | 如果要带社群或工作坊，再使用带学流程和提醒。 |
 | 11 | `docs/goal-coverage-matrix.md` | 验收或交接时核对原目标、交付证据和版权边界。 |
 | 12 | `docs/final-completion-audit.md` | 最终审计线上证据、验证命令和不能声明完成的部分。 |
-| 13 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
+| 13 | `docs/authorized-transcript-workflow.md` | 如果后续有授权文本，按流程生成私有逐字稿、译文和公开学习材料。 |
+| 14 | `site/index.html` | 最后用静态站预览学习者看到的完整入口。 |
 
 ## 发布建议
 
