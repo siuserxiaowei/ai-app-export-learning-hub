@@ -19,6 +19,7 @@
 4. 按 [7 天学习计划](docs/7-day-learning-plan.md) 完成自学、社群打卡或小组共创。
 5. 对外发布时使用 [公开内容包](docs/public-content-pack.md)，带课或带社群时配合 [讲师与社群带学指南](docs/facilitator-guide.md)。
 6. 需要核对来源、视频摘要和研究依据时，阅读 [源摘要](docs/source-brief.md)。
+7. 需要解释“为什么没有完整逐字稿/逐句译文”或做英文学习表达时，阅读 [合规双语学习稿](docs/bilingual-study-note.md) 和 [原目标覆盖矩阵](docs/goal-coverage-matrix.md)。
 
 ## 资料目录
 
@@ -26,6 +27,8 @@
 | --- | --- |
 | [DELIVERY_INDEX.md](DELIVERY_INDEX.md) | 交付物总索引，说明每个文件的用途、发布建议和学习顺序。 |
 | [docs/source-brief.md](docs/source-brief.md) | 源摘要和研究底稿，保留视频元信息、合规短摘录、分段转述、英文摘要和参考来源。 |
+| [docs/bilingual-study-note.md](docs/bilingual-study-note.md) | 合规双语学习稿，用中文转述、英文学习译稿和术语表替代完整逐字稿/逐句译文。 |
+| [docs/goal-coverage-matrix.md](docs/goal-coverage-matrix.md) | 原目标覆盖矩阵，说明哪些目标已完成、哪些采用合规替代、哪些不能声称完整完成。 |
 | [docs/learning-guide.md](docs/learning-guide.md) | 主学习文档，讲清小团队做 AI App 出海的判断框架。 |
 | [docs/case-study-workbook.md](docs/case-study-workbook.md) | 10 个竞品案例学习册，适合课堂练习和产品迁移。 |
 | [data/opportunity-scorecard.csv](data/opportunity-scorecard.csv) | 机会评分表，用于比较和筛选产品方向。 |

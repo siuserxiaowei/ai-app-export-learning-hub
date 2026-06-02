@@ -14,6 +14,8 @@ REQUIRED_PATHS = [
     "DELIVERY_INDEX.md",
     "QA_REPORT.md",
     "docs/source-brief.md",
+    "docs/bilingual-study-note.md",
+    "docs/goal-coverage-matrix.md",
     "docs/learning-guide.md",
     "docs/public-content-pack.md",
     "docs/case-study-workbook.md",
@@ -31,6 +33,7 @@ FORBIDDEN_PATTERNS = [
     "Lavart",
     "Karm",
     "Visa",
+    "lovart.ai/en/news",
 ]
 
 REQUIRED_CASES = [
@@ -113,9 +116,37 @@ def check_public_pack() -> None:
             fail(f"public content pack missing section: {section}")
 
 
+def check_bilingual_study_note() -> None:
+    text = read("docs/bilingual-study-note.md")
+    required = [
+        "版权边界",
+        "双语分段学习稿",
+        "核心术语中英对照",
+        "英文表达模板",
+        "课堂练习",
+    ]
+    for section in required:
+        if section not in text:
+            fail(f"bilingual study note missing section: {section}")
+
+
+def check_goal_matrix() -> None:
+    text = read("docs/goal-coverage-matrix.md")
+    required = [
+        "原目标拆解",
+        "覆盖矩阵",
+        "版权受限",
+        "深度研究",
+        "竞品",
+    ]
+    for phrase in required:
+        if phrase not in text:
+            fail(f"goal coverage matrix missing phrase: {phrase}")
+
+
 def check_site_links() -> None:
     html = read("site/index.html")
-    local_links = re.findall(r'href="(\\.\\./[^"#]+)"', html)
+    local_links = re.findall(r'(?:href|src)="(\\.\\./[^"#]+)"', html)
     for link in local_links:
         if not (ROOT / "site" / link).resolve().exists():
             fail(f"site local link target missing: {link}")
@@ -130,6 +161,8 @@ def main() -> None:
     check_forbidden_terms()
     check_case_workbook()
     check_public_pack()
+    check_bilingual_study_note()
+    check_goal_matrix()
     check_site_links()
     print("OK: learning hub package verification passed")
 
