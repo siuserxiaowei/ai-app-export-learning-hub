@@ -37,7 +37,7 @@
 | [docs/goal-coverage-matrix.md](docs/goal-coverage-matrix.md) | 原目标覆盖矩阵，说明哪些目标已完成、哪些采用合规替代、哪些不能声称完整完成。 |
 | [docs/final-completion-audit.md](docs/final-completion-audit.md) | 最终完成度审计，列出线上证据、逐项目标判断、验证命令和不能声明完成的部分。 |
 | [docs/research-evidence-register.md](docs/research-evidence-register.md) | 研究证据登记表，集中维护市场报告、平台政策、竞品/品牌和上线证据。 |
-| [docs/knowledge-source-register.md](docs/knowledge-source-register.md) | 知识库来源登记表，维护 8 个专题、12 个网页整理、平台政策、订阅报告、提示词资产化和 HTTPS 上线修复项。 |
+| [docs/knowledge-source-register.md](docs/knowledge-source-register.md) | 知识库来源登记表，维护 8 个专题、48 张知识卡、24 个网页整理、平台政策、订阅报告、提示词资产化和 HTTPS 上线修复项。 |
 | [docs/authorized-transcript-workflow.md](docs/authorized-transcript-workflow.md) | 授权逐字稿处理流程，说明授权文本到位后如何生成私有逐字稿、译文和公开学习材料。 |
 | [docs/google-ads-and-adsense-setup.md](docs/google-ads-and-adsense-setup.md) | Google AdSense 展示广告、Google Ads 转化追踪和域名接入说明。 |
 | [docs/google-ads-campaign-plan.md](docs/google-ads-campaign-plan.md) | Google Ads 小预算投放计划、关键词、广告文案和转化目标。 |
@@ -49,7 +49,14 @@
 | [docs/7-day-learning-plan.md](docs/7-day-learning-plan.md) | 7 天自学、打卡或训练营安排。 |
 | [docs/public-content-pack.md](docs/public-content-pack.md) | 可发布长文、30 分钟公开课讲稿和 10 张卡片文案。 |
 | [docs/facilitator-guide.md](docs/facilitator-guide.md) | 讲师和社群运营使用说明。 |
-| [site/index.html](site/index.html) | 静态知识库首页，配合 `site/styles.css` 和 `site/app.js` 提供搜索、标签筛选、专题入口、网页资料馆和深度资料库。 |
+| [site/index.html](site/index.html) | 静态知识库首页，提供 8 个专题、48 张知识卡、24 张网页资料卡、统一搜索、提示词资产工具包和深度资料库。 |
+| [site/content.js](site/content.js) | 全局内容注册文件，统一暴露 `window.learningHubContent`。 |
+| [site/content-advanced-cards.js](site/content-advanced-cards.js) | 24 张进阶知识卡扩展文件。 |
+| [site/content-web-extra.js](site/content-web-extra.js) | 12 张新增网页资料卡扩展文件。 |
+| [site/content-toolkits.js](site/content-toolkits.js) | 提示词资产 SOP、客户输入表、输出质检表和失败样本回放流程。 |
+| [sitemap.xml](sitemap.xml) | 搜索引擎站点地图，当前使用 HTTP canonical，待 HTTPS 修复后切换。 |
+| [robots.txt](robots.txt) | 搜索引擎抓取声明。 |
+| [llms.txt](llms.txt) | 给 AI 检索工具的项目摘要和入口索引。 |
 | [site/privacy.html](site/privacy.html) | 隐私说明页面，适合 AdSense / Google Ads 审核前准备。 |
 | [site/terms.html](site/terms.html) | 使用条款页面，说明学习用途、广告边界和免责声明。 |
 | [QA_REPORT.md](QA_REPORT.md) | 验收范围、版权边界和基础检查记录。 |
@@ -65,7 +72,7 @@
 
 ```text
 AI App Export Learning Hub, by siuserxiaowei, licensed under CC BY 4.0.
-Project: https://gptimage2.store/
+Project: http://gptimage2.store/site/index.html
 Repository: https://github.com/siuserxiaowei/ai-app-export-learning-hub
 ```
 
@@ -96,7 +103,9 @@ open site/index.html
 
 线上页面：
 
-https://gptimage2.store/
+http://gptimage2.store/site/index.html
+
+自有域名 HTTPS 当前仍待 DNS / 证书修复，正式推广前不要把 `https://gptimage2.store/` 作为主入口。
 
 GitHub Pages 备用地址：
 

@@ -18,7 +18,7 @@
 | `docs/goal-coverage-matrix.md` | 原目标覆盖矩阵，逐项说明原始需求、当前交付证据、状态和限制。 | 适合交接、验收、版权边界解释和后续迭代。 |
 | `docs/final-completion-audit.md` | 最终完成度审计，包含线上证据、逐项目标判断、验证命令和不能声明完成的部分。 | 适合最终交接、对外发布前审计和后续维护。 |
 | `docs/research-evidence-register.md` | 研究证据登记表，集中记录市场报告、平台政策、竞品/品牌页面、媒体案例和上线证据。 | 适合讲课引用、发布前复查、后续链接维护和事实审计。 |
-| `docs/knowledge-source-register.md` | 知识库来源登记表，记录首页 8 个专题、12 个网页整理、来源等级、核查日期、提示词资产化流程和 HTTPS 上线修复项。 | 适合知识库长期维护、政策复查、协作者纠错和正式推广前审计。 |
+| `docs/knowledge-source-register.md` | 知识库来源登记表，记录首页 8 个专题、48 张知识卡、24 个网页整理、来源等级、核查日期、提示词资产化流程和 HTTPS 上线修复项。 | 适合知识库长期维护、政策复查、协作者纠错和正式推广前审计。 |
 | `docs/authorized-transcript-workflow.md` | 授权逐字稿处理流程，说明授权文本到位后如何在私有目录处理完整逐字稿、译文和学习注释。 | 适合后续用户提供授权文本时继续处理，不建议公开放完整逐字稿。 |
 | `docs/google-ads-and-adsense-setup.md` | Google AdSense、Google Ads、`ads.txt`、隐私条款和转化追踪接入说明。 | 广告账号申请、站点审核和转化追踪启用时使用。 |
 | `docs/google-ads-campaign-plan.md` | 小预算 Google Ads 投放计划，包含人群、关键词、文案、预算和转化目标。 | 用于第一轮搜索广告测试。 |
@@ -30,7 +30,11 @@
 | `docs/7-day-learning-plan.md` | 7 天学习和验证节奏，覆盖认知、用户、竞品、MVP、渠道和继续/停止判断。 | 适合训练营、社群打卡和个人执行计划。 |
 | `docs/public-content-pack.md` | 公开内容包，包含长文、30 分钟公开课讲稿和 10 张学习卡片文案。 | 可拆成公众号文章、直播稿、小红书/朋友圈卡片。 |
 | `docs/facilitator-guide.md` | 讲师与社群带学指南，提供 30 分钟课、60 分钟工作坊和打卡组织方式。 | 给主持人、讲师或社群运营使用。 |
-| `site/index.html` | 静态知识库首页，面向学习者提供学习路径、知识卡搜索、标签筛选、网页资料馆、提示词资产化、案例和深度资料库入口。 | 可直接本地打开，也可部署到静态托管。 |
+| `site/index.html` | 静态知识库首页，面向学习者提供学习路径、统一搜索、标签筛选、48 张知识卡、24 张网页资料卡、提示词资产工具包、案例和深度资料库入口。 | 可直接本地打开，也可部署到静态托管。 |
+| `site/content.js` | 全局内容注册文件，统一暴露 `window.learningHubContent`。 | 后续扩展内容时优先改内容文件，不直接堆进交互脚本。 |
+| `site/content-advanced-cards.js` | 24 张进阶知识卡扩展文件。 | 内容扩展维护使用。 |
+| `site/content-web-extra.js` | 12 张新增网页资料卡扩展文件。 | 网页资料馆维护使用。 |
+| `site/content-toolkits.js` | 提示词资产 SOP、客户输入表、输出质检表和失败样本回放流程。 | 提示词资产产品化、交付复盘和团队传承使用。 |
 | `site/styles.css` | 静态站样式文件。 | 与 `site/index.html` 一起发布，不单独使用。 |
 | `site/app.js` | 静态站交互脚本。 | 与 `site/index.html` 一起发布，不单独使用。 |
 | `site/privacy.html` | 隐私说明页面，覆盖静态站访问、Google AdSense、Google Ads 和 cookies。 | AdSense / Google Ads 审核前准备。 |
@@ -38,6 +42,9 @@
 | `site/google-ads-config.js` | Google Ads no-op 配置，默认 `enabled: false`。 | 拿到真实 ID 后启用。 |
 | `site/google-ads-config.example.js` | Google Ads 配置示例，保留占位字段。 | 给后续配置参考，不直接填假 ID。 |
 | `site/tracking.js` | 转化追踪脚本；默认不加载 Google tag，启用后追踪关键 CTA。 | Google Ads conversion actions 创建后使用。 |
+| `sitemap.xml` | 搜索引擎站点地图，当前使用 HTTP canonical，待 HTTPS 修复后切换。 | SEO 上线前复核域名和协议。 |
+| `robots.txt` | 搜索引擎抓取声明。 | 与站点一起发布。 |
+| `llms.txt` | AI 检索工具可读的项目摘要和入口索引。 | 给 LLM / agent 检索时快速理解项目结构。 |
 | `QA_REPORT.md` | 验收范围、版权边界和基础检查记录。 | 发布前由验收者补充最终检查结果。 |
 
 ## 推荐学习顺序
@@ -71,7 +78,7 @@
 - 小红书/朋友圈/社群海报：使用 `docs/public-content-pack.md` 的 10 张学习卡片文案。
 - 训练营或打卡：组合 `docs/7-day-learning-plan.md`、`docs/facilitator-guide.md` 和 `data/opportunity-scorecard.csv`。
 - 产品方向讨论会：先让学习者读 `docs/case-study-workbook.md`，再用 `data/opportunity-scorecard.csv` 做评分。
-- 对外公开页面：发布 `site/index.html`、`site/styles.css` 和 `site/app.js` 三个静态站文件；正式推广前同步复核 `docs/knowledge-source-register.md`。
+- 对外公开页面：发布 `site/index.html`、`site/styles.css`、`site/app.js`、`site/content*.js`、`sitemap.xml`、`robots.txt` 和 `llms.txt`；正式推广前同步复核 `docs/knowledge-source-register.md`。
 - 开源文档站：保留 `LICENSE`、`CONTRIBUTING.md`、`ATTRIBUTION.md`，并在页面页脚展示 Privacy、Terms、GitHub 和 License。
 - Google AdSense：先完成自有域名和 HTTPS，再按 `docs/google-ads-and-adsense-setup.md` 申请站点审核；通过前不要添加假广告 ID。
 - Google Ads：先按 `docs/google-ads-campaign-plan.md` 投小预算搜索广告，转化目标只看开始学习、下载评分表、打开 GitHub 和打开 OPC 剧本。

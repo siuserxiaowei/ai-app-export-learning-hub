@@ -19,6 +19,9 @@ REQUIRED_PATHS = [
     "CONTRIBUTING.md",
     "ATTRIBUTION.md",
     "CNAME",
+    "sitemap.xml",
+    "robots.txt",
+    "llms.txt",
     "ads.txt.template",
     "docs/source-brief.md",
     "docs/bilingual-study-note.md",
@@ -41,6 +44,10 @@ REQUIRED_PATHS = [
     "site/privacy.html",
     "site/terms.html",
     "site/styles.css",
+    "site/content.js",
+    "site/content-advanced-cards.js",
+    "site/content-web-extra.js",
+    "site/content-toolkits.js",
     "site/app.js",
     "site/google-ads-config.js",
     "site/google-ads-config.example.js",
@@ -263,6 +270,10 @@ def check_opc_app_playbook() -> None:
 def check_site_knowledge_base() -> None:
     html = read("site/index.html")
     js = read("site/app.js")
+    content = read("site/content.js")
+    advanced = read("site/content-advanced-cards.js")
+    web_extra = read("site/content-web-extra.js")
+    toolkits = read("site/content-toolkits.js")
 
     required_html = [
         'id="knowledge"',
@@ -271,16 +282,26 @@ def check_site_knowledge_base() -> None:
         'id="topicRail"',
         'id="topicDetail"',
         'id="knowledgeGrid"',
+        'id="globalSearchResults"',
+        'id="globalSearchCount"',
         'id="web-library"',
         'id="webLibraryGrid"',
         'id="webLibraryCount"',
         'id="prompt-system"',
+        'id="toolkitGrid"',
+        'id="toolkitCount"',
+        'id="statWebPages"',
         "App 出海知识库",
         "网页资料馆",
         "把外部网页整理成能用的判断",
         "提示词资产",
+        "提示词资产工具包",
         "深度资料库",
         "最后核查：2026-06-02",
+        '<script src="content.js"></script>',
+        '<script src="content-advanced-cards.js"></script>',
+        '<script src="content-web-extra.js"></script>',
+        '<script src="content-toolkits.js"></script>',
     ]
     for phrase in required_html:
         if phrase not in html:
@@ -297,31 +318,60 @@ def check_site_knowledge_base() -> None:
         'id: "growth"',
     ]
     for topic_id in required_topic_ids:
-        if topic_id not in js:
+        if topic_id not in content:
             fail(f"site knowledge base missing topic: {topic_id}")
 
     required_js = [
-        'const lastVerifiedDate = "2026-06-02"',
+        "window.learningHubContent",
         "renderKnowledge",
         "renderWebLibrary",
+        "renderUnifiedSearch",
+        "renderToolkits",
         "makeWebPageCard",
         "makeKnowledgeCard",
+        "makeToolkitCard",
         "knowledgeSearch.addEventListener",
-        "提示词传承模板",
-        "把提示词当业务流程，不当神秘咒语",
-        "RevenueCat：Subscription Apps 2026",
     ]
     for phrase in required_js:
         if phrase not in js:
             fail(f"site knowledge base missing js phrase: {phrase}")
 
-    verified_count = js.count("verified: lastVerifiedDate")
-    if verified_count != 36:
-        fail(f"site knowledge base should have 24 cards and 12 web pages, got {verified_count} verified items")
+    required_content = [
+        'const lastVerifiedDate = "2026-06-02"',
+        "window.learningHubContent",
+        "toolkits",
+        "提示词传承模板",
+        "把提示词当业务流程，不当神秘咒语",
+        "RevenueCat：Subscription Apps 2026",
+    ]
+    for phrase in required_content:
+        if phrase not in content:
+            fail(f"site content registry missing phrase: {phrase}")
 
-    web_page_count = js.count("whyRead:")
-    if web_page_count != 12:
-        fail(f"site web library should have 12 curated pages, got {web_page_count}")
+    base_verified_count = content.count("verified: lastVerifiedDate")
+    advanced_verified_count = advanced.count("verified")
+    web_extra_verified_count = web_extra.count("verified")
+    toolkit_verified_count = toolkits.count("verified")
+    if base_verified_count != 36:
+        fail(f"site base registry should have 24 cards and 12 web pages, got {base_verified_count} verified items")
+    if advanced_verified_count < 24:
+        fail(f"advanced content should append 24 verified cards, got {advanced_verified_count}")
+    if web_extra_verified_count < 12:
+        fail(f"web extra content should append 12 verified pages, got {web_extra_verified_count}")
+    if toolkit_verified_count < 4:
+        fail(f"toolkit content should append 4 verified toolkits, got {toolkit_verified_count}")
+
+    web_page_count = content.count("whyRead:") + web_extra.count("whyRead:")
+    if web_page_count != 24:
+        fail(f"site web library should have 24 curated pages, got {web_page_count}")
+
+    advanced_card_count = advanced.count("title:")
+    if advanced_card_count < 24:
+        fail(f"advanced card registry should include at least 24 card titles, got {advanced_card_count}")
+
+    toolkit_count = toolkits.count("id:")
+    if toolkit_count != 4:
+        fail(f"toolkit registry should include 4 toolkits, got {toolkit_count}")
 
 
 def check_site_links() -> None:
@@ -370,6 +420,7 @@ def check_site_links() -> None:
         "知识库",
         "网页资料馆",
         "提示词资产",
+        "提示词资产工具包",
         "深度资料库",
         "Privacy",
         "Terms",
@@ -416,6 +467,39 @@ def check_open_source_and_ads_readiness() -> None:
         fail("ads.txt.template does not match expected Google AdSense template")
 
 
+def check_seo_readiness() -> None:
+    sitemap = read("sitemap.xml")
+    for phrase in [
+        "http://gptimage2.store/site/index.html",
+        "http://gptimage2.store/site/privacy.html",
+        "http://gptimage2.store/site/terms.html",
+        "<lastmod>2026-06-02</lastmod>",
+    ]:
+        if phrase not in sitemap:
+            fail(f"sitemap missing phrase: {phrase}")
+
+    robots = read("robots.txt")
+    for phrase in ["User-agent: *", "Allow: /", "Sitemap: http://gptimage2.store/sitemap.xml"]:
+        if phrase not in robots:
+            fail(f"robots.txt missing phrase: {phrase}")
+
+    llms = read("llms.txt")
+    for phrase in ["AI App 出海知识库", "核心页面", "使用边界", "不提供完整视频逐字稿"]:
+        if phrase not in llms:
+            fail(f"llms.txt missing phrase: {phrase}")
+
+    html = read("site/index.html")
+    for phrase in [
+        'rel="canonical"',
+        'property="og:title"',
+        'name="twitter:card"',
+        'application/ld+json',
+        "LearningResource",
+    ]:
+        if phrase not in html:
+            fail(f"site index missing SEO phrase: {phrase}")
+
+
 def main() -> None:
     check_required_paths()
     check_csv()
@@ -433,6 +517,7 @@ def main() -> None:
     check_site_knowledge_base()
     check_site_links()
     check_open_source_and_ads_readiness()
+    check_seo_readiness()
     print("OK: learning hub package verification passed")
 
 

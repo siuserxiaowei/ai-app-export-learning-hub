@@ -24,25 +24,28 @@
 - 隐私说明和使用条款页面
 - 交付索引和入口说明
 
-## 2026-06-02 知识库改造追加验收
+## 2026-06-02 自主持续开发追加验收
 
-- 首页已从资料包入口升级为知识库首页，保留学习路径，并新增搜索、标签筛选、8 个一级专题、核查日期、GitHub 贡献入口和深度资料库。
-- `site/app.js` 已内置 8 个一级专题：市场与机会、产品验证、AI App 案例、上架合规、隐私与 AI 风险、ASO 与本地化、订阅变现、冷启动增长。
-- 每个一级专题包含 3 张入门知识卡、1 个模板、1 个案例和 1 组行动清单；总计 24 张知识卡。
+- 首页已从资料包入口升级为可维护的知识库首页，保留学习路径，并新增统一搜索、标签筛选、8 个一级专题、核查日期、GitHub 贡献入口和深度资料库。
+- `site/content.js` 已作为全局内容注册文件，统一暴露 `window.learningHubContent`；`site/app.js` 只负责渲染、筛选和搜索交互。
+- 8 个一级专题保持为：市场与机会、产品验证、AI App 案例、上架合规、隐私与 AI 风险、ASO 与本地化、订阅变现、冷启动增长。
+- 每个一级专题包含 3 张入门知识卡、3 张进阶知识卡、1 个模板、1 个案例和 1 组行动清单；总计 48 张知识卡。
 - 每张知识卡包含适合谁、核心结论、操作步骤、常见坑、来源和最后核查日期。
 - 已新增 `docs/knowledge-source-register.md`，记录来源等级、政策核查日期、订阅报告、提示词资产化流程和 HTTPS 上线修复项。
-- 针对“前同事留下的提示词没人会用”的业务问题，首页新增提示词资产区，并在产品验证专题中加入提示词传承模板与操作卡。
+- 针对“前同事留下的提示词没人会用”的业务问题，首页新增提示词资产工具包，包含 SOP、客户输入表、提示词原件登记、输出质检表和失败样本回放流程。
 - 已将失效的抖音短链从公开可点击外链改为历史来源说明，避免把短链作为长期公开来源。
-- 已用系统 Chrome headless 验证桌面和移动视口：9 个专题按钮、24 张知识卡、提示词搜索返回 3 张卡、上架合规筛选返回 3 张卡、订阅标签返回 3 张卡，无控制台错误，无横向溢出。
-- 已新增“网页资料馆”，把 12 个外部网页整理成为什么读、我怎么看、怎么用、别误读，并按市场趋势、上架合规、ASO 增长、订阅变现筛选。
-- 已用系统 Chrome headless 追加验证网页资料馆：桌面和移动视口均显示 12 张网页卡，5 个筛选按钮可用，上架合规筛选返回 4 张，订阅变现筛选返回 3 张，无控制台错误，无横向溢出。
-- 核心外链短名单验证通过：GitHub、Sensor Tower、TechCrunch、Apple Review、Google Play AI policy、Google Data Safety、Apple localization、Apple custom product pages、Google store listing experiments、Apple subscriptions、RevenueCat 2026、RevenueCat 2025、Apple EU DSA 均返回 200。
+- 已用系统 Chrome headless 验证桌面 1440px 和移动 390px 视口：9 个专题按钮、48 张知识卡、24 张网页资料卡、4 个提示词工具包、6 个网页筛选按钮，无控制台 warning/error，无横向溢出。
+- 统一搜索已覆盖知识卡、网页资料、案例、模板和提示词工具包；桌面和移动视口中，“提示词”返回 12 条，“EU DSA”返回 8 条，“订阅”返回 12 条，“ASO”返回 11 条。
+- 网页资料馆已扩展为 24 个外部网页，整理成为什么读、我怎么看、怎么用、别误读，并按市场趋势、上架合规、ASO 增长、订阅变现、公开案例筛选。
+- 网页资料馆筛选已通过浏览器断言：上架合规返回 7 张，订阅变现返回 5 张，公开案例返回 2 张。
+- 已新增 `sitemap.xml`、`robots.txt` 和 `llms.txt`；`site/index.html` 已补充 canonical、Open Graph、Twitter 卡片和 LearningResource 结构化数据。当前 canonical 使用 HTTP，待 HTTPS 修复后再切换。
+- 核心外链短名单验证通过：GitHub、Sensor Tower、TechCrunch、Apple Review、Google Play AI policy、Google Data Safety、Apple localization、Apple custom product pages、Google store listing experiments、Apple subscriptions、RevenueCat 2026、RevenueCat 2025、Apple EU DSA、Apple App Privacy Details、Google User Data policy、Google Developer Policy、GSMA Mobile Economy、Photoroom customer stories、RevenueCat dub case 均返回 200 或可接受跳转。
 - `http://gptimage2.store/site/index.html` 和 `http://gptimage2.store/` 返回 200；`https://gptimage2.store/` 仍返回 000，保留为正式推广前的 HTTPS 证书修复项。
 
 ## 完成项
 
 - 已将 `main` 合并到 `agent/qa-polish`，合并方式为 fast-forward。
-- Required files 共 20 项全部存在：入口说明、交付索引、QA 报告、12 份核心 docs、CSV、静态站三件套和验证脚本。
+- Required files 共 27 项全部存在：入口说明、交付索引、QA 报告、13 份核心 docs、CSV、静态站文件、内容注册文件和 SEO 文件。
 - 新增 `docs/bilingual-study-note.md`，用中文学习稿、英文学习译稿、术语表和课堂练习替代不可交付的完整逐字稿/逐句译文。
 - 新增 `docs/goal-coverage-matrix.md`，逐项说明原始目标、当前交付证据、完成状态和版权限制。
 - 新增 `docs/brand-teardown-handbook.md`，独立拆解 AI App 出海品牌的命名、首页、信任层、定价、传播钩子和 10 个品牌样本。
@@ -93,7 +96,10 @@ required = [
     'docs/opc-app-playbook.md',
     'docs/brand-teardown-handbook.md',
     'docs/case-study-workbook.md', 'docs/7-day-learning-plan.md', 'docs/facilitator-guide.md',
-    'data/opportunity-scorecard.csv', 'site/index.html', 'site/styles.css', 'site/app.js',
+    'data/opportunity-scorecard.csv',
+    'site/index.html', 'site/styles.css', 'site/app.js', 'site/content.js',
+    'site/content-advanced-cards.js', 'site/content-web-extra.js', 'site/content-toolkits.js',
+    'sitemap.xml', 'robots.txt', 'llms.txt',
 ]
 missing = [path for path in required if not Path(path).exists()]
 print('required files checked:', len(required))
@@ -186,7 +192,7 @@ curl -I -L https://gptimage2.store/
 ## 验证结果
 
 - `python3 scripts/verify_package.py` 输出：`OK: learning hub package verification passed`。
-- Required files 检查输出：20 项，missing 为 `none`。
+- Required files 检查输出：27 项，missing 为 `none`。
 - CSV 检查输出：10 行，字段包括 `opportunity`、`target_user`、`job_to_be_done`、`opportunity_score` 等。
 - 静态站本地链接检查：20 个本地 `href`/`src` 均存在；8 个站内锚点均存在。
 - Markdown 本地链接检查：31 个本地链接均存在。

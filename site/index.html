@@ -5,8 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI App 出海知识库</title>
   <meta name="description" content="给 OPC、超级个体、独立开发者和小团队使用的 AI App 出海知识库，覆盖市场机会、产品验证、上架合规、ASO、本地化、订阅变现和冷启动增长。">
+  <link rel="canonical" href="http://gptimage2.store/site/index.html">
   <link rel="icon" href="data:,">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI App 出海知识库">
+  <meta property="og:description" content="面向 OPC、超级个体、独立开发者和小团队的 AI App 出海学习与实战站。">
+  <meta property="og:url" content="http://gptimage2.store/site/index.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI App 出海知识库">
+  <meta name="twitter:description" content="少堆链接，多做判断；少讲概念，多给可执行模板。">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "AI App 出海知识库",
+    "description": "面向 OPC、超级个体、独立开发者和小团队的 AI App 出海学习与实战站。",
+    "url": "http://gptimage2.store/site/index.html",
+    "inLanguage": "zh-CN",
+    "learningResourceType": "Knowledge base",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "OPC、独立开发者、小团队"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -65,7 +88,7 @@
           </div>
           <div>
             <span>网页资料馆</span>
-            <strong>12 pages</strong>
+            <strong><span id="statWebPages">24</span> pages</strong>
           </div>
         </div>
         <p>先让访客不用下载也能学到方法，再把深度文档、表格和案例册作为进阶资料。</p>
@@ -118,7 +141,7 @@
         <div>
           <p class="eyebrow">Knowledge Base</p>
           <h2>App 出海知识库</h2>
-          <p>8 个一级专题，每个专题至少包含 3 张入门知识卡、1 个模板、1 个案例和 1 组行动清单。搜索框支持按主题、结论、步骤、坑点和来源检索。</p>
+          <p>8 个一级专题，每个专题包含 3 张入门卡和 3 张进阶卡，并配有模板、案例和行动清单。搜索框支持按主题、结论、步骤、坑点和来源检索。</p>
         </div>
         <a class="button compact" href="../docs/research-evidence-register.md">查看来源登记</a>
       </div>
@@ -131,11 +154,19 @@
         <div class="tag-filters" id="tagFilters" aria-label="标签筛选"></div>
       </div>
 
+      <div class="global-search" aria-label="统一搜索结果">
+        <div class="global-search-head">
+          <strong>统一搜索结果</strong>
+          <span id="globalSearchCount">输入关键词后，同时检索知识卡、网页资料、案例和提示词工具包。</span>
+        </div>
+        <div class="global-search-grid" id="globalSearchResults"></div>
+      </div>
+
       <div class="knowledge-layout">
         <aside class="topic-rail" id="topicRail" aria-label="一级专题"></aside>
         <div class="knowledge-main">
           <div class="topic-detail" id="topicDetail" aria-live="polite"></div>
-          <p class="case-count" id="knowledgeCount" aria-live="polite">当前显示 24 / 24 张知识卡</p>
+          <p class="case-count" id="knowledgeCount" aria-live="polite">当前显示 48 / 48 张知识卡</p>
           <div class="knowledge-grid" id="knowledgeGrid"></div>
         </div>
       </div>
@@ -157,9 +188,10 @@
         <button class="source-filter" type="button" data-source-category="platform" aria-pressed="false">上架合规</button>
         <button class="source-filter" type="button" data-source-category="growth" aria-pressed="false">ASO 增长</button>
         <button class="source-filter" type="button" data-source-category="monetization" aria-pressed="false">订阅变现</button>
+        <button class="source-filter" type="button" data-source-category="cases" aria-pressed="false">公开案例</button>
       </div>
 
-      <p class="case-count" id="webLibraryCount" aria-live="polite">当前显示 12 / 12 个网页整理</p>
+      <p class="case-count" id="webLibraryCount" aria-live="polite">当前显示 24 / 24 个网页整理</p>
       <div class="web-grid" id="webLibraryGrid"></div>
     </section>
 
@@ -186,6 +218,18 @@
           <h3>做成 SOP 和质检表</h3>
           <p>用 10 个真实客户样本做回放，形成输入表单、提示词版本、输出评分表、人工复核步骤和失败处理规则，新人才能稳定接手。</p>
         </article>
+      </div>
+
+      <div class="toolkit-panel">
+        <div class="section-head row compact-head">
+          <div>
+            <p class="eyebrow">Operational Templates</p>
+            <h3>提示词资产工具包</h3>
+            <p>把提示词从个人经验变成团队流程：先填输入表，再登记原件，用质检表复核输出，最后用失败样本回放修正边界。</p>
+          </div>
+          <p class="case-count" id="toolkitCount" aria-live="polite">当前显示 4 个工具模板</p>
+        </div>
+        <div class="toolkit-grid" id="toolkitGrid"></div>
       </div>
     </section>
 
@@ -376,6 +420,10 @@ AI 处理：
     </nav>
   </footer>
 
+  <script src="content.js"></script>
+  <script src="content-advanced-cards.js"></script>
+  <script src="content-web-extra.js"></script>
+  <script src="content-toolkits.js"></script>
   <script src="app.js"></script>
   <script src="google-ads-config.js"></script>
   <script src="tracking.js"></script>
