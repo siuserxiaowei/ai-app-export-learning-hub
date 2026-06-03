@@ -408,8 +408,8 @@ def render_sitemap(markdown_files: list[Path]) -> None:
     urls = []
     for path in seen:
         loc = "http://gptimage2.store/" if not path else f"http://gptimage2.store/{path}"
-        priority = "1.0" if path in {"", "site/index.html"} else "0.7"
-        changefreq = "weekly" if path.endswith(".html") and path not in {"site/privacy.html", "site/terms.html"} else "monthly"
+        priority = "1.0" if not path else "0.8" if path == "site/index.html" else "0.7"
+        changefreq = "weekly" if (not path or path.endswith(".html")) and path not in {"site/privacy.html", "site/terms.html"} else "monthly"
         urls.append(
             "  <url>\n"
             f"    <loc>{html.escape(loc)}</loc>\n"

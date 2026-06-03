@@ -19,6 +19,7 @@ REQUIRED_PATHS = [
     "CONTRIBUTING.md",
     "ATTRIBUTION.md",
     "CNAME",
+    "index.html",
     "sitemap.xml",
     "robots.txt",
     "llms.txt",
@@ -48,11 +49,13 @@ REQUIRED_PATHS = [
     "site/content-advanced-cards.js",
     "site/content-web-extra.js",
     "site/content-toolkits.js",
+    "site/root-paths.js",
     "site/app.js",
     "site/google-ads-config.js",
     "site/google-ads-config.example.js",
     "site/tracking.js",
     "scripts/render_markdown_pages.py",
+    "scripts/render_root_index.py",
 ]
 
 ROOT_MARKDOWN_PATHS = [
@@ -442,6 +445,86 @@ def check_site_links() -> None:
             fail(f"site missing required visible text: {required}")
 
 
+def check_root_homepage() -> None:
+    html = read("index.html")
+    forbidden = [
+        'http-equiv="refresh"',
+        "正在打开",
+        'url=site/index.html',
+        'href="../docs/',
+        'href="../data/',
+        'src="content.js"',
+        'src="app.js"',
+        'href="privacy.html"',
+        'href="terms.html"',
+    ]
+    for phrase in forbidden:
+        if phrase in html:
+            fail(f"root homepage still contains redirect/path fragment: {phrase}")
+
+    required = [
+        '<link rel="canonical" href="http://gptimage2.store/">',
+        'property="og:url" content="http://gptimage2.store/"',
+        '"url": "http://gptimage2.store/"',
+        'href="site/styles.css"',
+        'href="docs/learning-guide.html"',
+        'href="data/opportunity-scorecard.csv"',
+        'href="site/privacy.html"',
+        'href="site/terms.html"',
+        'href="LICENSE.html"',
+        '<script src="site/content.js"></script>',
+        '<script src="site/content-advanced-cards.js"></script>',
+        '<script src="site/content-web-extra.js"></script>',
+        '<script src="site/content-toolkits.js"></script>',
+        '<script src="site/root-paths.js"></script>',
+        '<script src="site/app.js"></script>',
+        "AI App 出海知识库",
+        "当前显示 48 / 48 张知识卡",
+    ]
+    for phrase in required:
+        if phrase not in html:
+            fail(f"root homepage missing phrase: {phrase}")
+
+    if len(html) < 10000:
+        fail("root homepage is too small; it should be the full rendered homepage, not a redirect shim")
+    if re.search(r'href="[^"]+\.md(?:[#?"]|$)', html):
+        fail("root homepage should link rendered HTML pages, not raw Markdown files")
+
+    class Parser(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.links: list[str] = []
+            self.ids: set[str] = set()
+
+        def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+            attrs_dict = dict(attrs)
+            if attrs_dict.get("id"):
+                self.ids.add(attrs_dict["id"] or "")
+            for attr in ("href", "src"):
+                if attrs_dict.get(attr):
+                    self.links.append(attrs_dict[attr] or "")
+
+    parser = Parser()
+    parser.feed(html)
+    for raw in parser.links:
+        parsed = urlparse(raw)
+        target_without_fragment = raw.split("#", 1)[0].split("?", 1)[0]
+        if parsed.fragment and not parsed.scheme and not target_without_fragment:
+            if parsed.fragment not in parser.ids:
+                fail(f"index.html missing fragment target: {raw}")
+        if (
+            not target_without_fragment
+            or parsed.scheme
+            or raw.startswith("//")
+            or raw.startswith("mailto:")
+            or raw.startswith("tel:")
+        ):
+            continue
+        target = (ROOT / unquote(target_without_fragment)).resolve()
+        if not target.exists():
+            fail(f"index.html local link target missing: {raw}")
+
+
 def check_rendered_markdown_pages() -> None:
     markdown_paths = [ROOT / path for path in ROOT_MARKDOWN_PATHS]
     markdown_paths.extend(sorted((ROOT / "docs").glob("*.md")))
@@ -558,6 +641,9 @@ def check_seo_readiness() -> None:
         if phrase not in sitemap:
             fail(f"sitemap missing phrase: {phrase}")
 
+    if "<loc>http://gptimage2.store/</loc>" not in sitemap:
+        fail("sitemap missing root homepage")
+
     robots = read("robots.txt")
     for phrase in ["User-agent: *", "Allow: /", "Sitemap: http://gptimage2.store/sitemap.xml"]:
         if phrase not in robots:
@@ -596,6 +682,7 @@ def main() -> None:
     check_opc_app_playbook()
     check_site_knowledge_base()
     check_site_links()
+    check_root_homepage()
     check_rendered_markdown_pages()
     check_open_source_and_ads_readiness()
     check_seo_readiness()
